@@ -1,4 +1,4 @@
-/* global CODUS_ENGINE_URL */
+/* global CODUS_API_BASE */
 import auth from '../../auth';
 
 
@@ -13,7 +13,7 @@ export default {
 
   methods: {
     signup() {
-      fetch(`${CODUS_ENGINE_URL}/user`, {
+      fetch(`${CODUS_API_BASE}/user`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
