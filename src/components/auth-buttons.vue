@@ -16,14 +16,4 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-  .auth-buttons
-    height: 1rem
-    display: flex
-    font-size: .6rem
-    align-items: center
-
-    div
-      margin-left: 1rem
-      cursor: pointer
-</style>
+<style scoped lang="sass" src="./auth-buttons.sass"></style>
