@@ -4,12 +4,12 @@ export default {
     // Number of stars in the simulation
     starCount: {
       type: Number,
-      default: 2000,
+      default: 2500,
     },
     // Speed at which the stars move
     speed: {
       type: Number,
-      default: 1,
+      default: 10,
     },
     // Simulation frames per second
     fps: {
@@ -64,8 +64,8 @@ export default {
 
     // Adjust canvas coordinate size
     resize() {
-      this.$refs.stars.width = this.$refs.stars.offsetWidth;
-      this.$refs.stars.height = this.$refs.stars.offsetHeight;
+      this.$refs.stars.width = this.$refs.stars.offsetWidth * (window.devicePixelRatio || 1);
+      this.$refs.stars.height = this.$refs.stars.offsetHeight * (window.devicePixelRatio || 1);
     },
 
     // Draw and move all stars
@@ -83,7 +83,10 @@ export default {
         const finalX = projectedX + (this.$refs.stars.width / 2);
         const finalY = projectedY + (this.$refs.stars.height / 2);
 
-        this.ctx.fillRect(finalX, finalY, 5 * progress, 5 * progress);
+        this.ctx.fillRect(finalX,
+          finalY,
+          5 * progress * (window.devicePixelRatio || 1),
+          5 * progress * (window.devicePixelRatio || 1));
 
         star.z -= this.speed / 100;
         if (star.z < 0
