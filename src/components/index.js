@@ -14,7 +14,7 @@ import Modal from './modal/modal.vue';
 import Login from './login/login.vue';
 import Signup from './signup/signup.vue';
 import TopBar from './top-bar/top-bar.vue';
-import AuthButtons from './auth-buttons.vue';
+import AuthButtons from './auth-buttons/auth-buttons.vue';
 Vue.component('starfield', Starfield);
 Vue.component('modal', Modal);
 Vue.component('login', Login);
