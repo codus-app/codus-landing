@@ -32,8 +32,8 @@ export default {
 
   // See if the user is authenticated
   isAuthenticated() {
-    return localStorage.getItem('id_token') !== null &&
-           localStorage.getItem('access_token') !== null;
+    return localStorage.getItem('id_token') !== null
+      && localStorage.getItem('access_token') !== null;
   },
 
   // Check whether our access token is expired
