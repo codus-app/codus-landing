@@ -7,7 +7,3 @@ Vue.component('user-icon', UserIcon);
 Vue.component('lock-icon', LockIcon);
 Vue.component('at-sign-icon', AtSignIcon);
 Vue.component('mail-icon', MailIcon);
-
-// Internal components
-import Starfield from './starfield';
-Vue.component('starfield', Starfield);
