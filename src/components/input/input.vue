@@ -16,7 +16,7 @@
           success: 'icon-check',
           failure: 'icon-x',
           loading: 'spinner'
-        }[status]"></component>
+        }[status]" v-bind:color="theme === 'dark' ? 'white' : '#232327'"></component>
       </div>
     </div>
     <div class="message">{{ message }}</div>
