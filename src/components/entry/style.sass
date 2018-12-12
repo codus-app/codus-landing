@@ -20,28 +20,16 @@
     &:last-of-type
       margin-bottom: .5em
 
-  input
-    background: #eaeaea
-    padding: 14px 20px
-    border-radius: 6px
+  .input
     width: 100%
     max-width: 340px
 
-    font-family: $font-1
     font-size: 13px
     font-weight: 500
-
-    &::placeholder
-      color: transparentize($dark-5, .5)
+    font-family: $font-1
 
     &:first-of-type
       margin-top: auto
 
     &:not(:last-child)
       margin-bottom: 10px
-
-    // Overrides / resets
-    // sass-lint:disable-block declarations-before-nesting
-    border: 0
-    outline: 0
-    box-shadow: 0

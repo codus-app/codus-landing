@@ -4,8 +4,20 @@
     <h3>Start learning today.</h3>
     <h3 class="green">Let's get started.</h3>
 
-    <input type="text" placeholder="Email Address">
-    <input type="text" placeholder="Password">
+    <text-input
+      v-model="email"
+      placeholder="Email address"
+      v-bind:status="emailStatus"
+      theme="light"
+    ></text-input>
+
+    <text-input
+      v-model="password"
+      placeholder="Password"
+      v-bind:status="passwordStatus"
+      theme="light"
+      :password="true"
+    ></text-input>
   </div>
 </template>
 
