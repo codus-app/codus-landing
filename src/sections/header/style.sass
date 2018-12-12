@@ -33,9 +33,24 @@ header
     @media (min-width: $start + $max-padding-left)
       padding-left: $max-padding-left
 
+    // Vertical mobile layout
+    @media (max-width: 799px)
+      width: auto
+      flex-direction: column
+      align-items: center
+
+      div.right
+        align-self: stretch
+        margin-left: 0
+        margin-top: 20px
+
+        .login
+          position: static
+          max-width: none
+
 
     .left
-      flex-basis: 0
+      flex-basis: 0 // sass-lint:disable-line empty-line-between-blocks
       flex-grow: 0
       flex-shrink: 0
 
@@ -45,6 +60,9 @@ header
 
       @media (min-width: 800px) and (max-width: 1000px)
         font-size: calc(24px + (100vw - 1000px) / 40)
+
+      @media (max-width: 545px)
+        font-size: calc(24px + (100vw - 545px) / 20.15) // 20.15 is very much a Magic Number but yolo
 
 
       h1
