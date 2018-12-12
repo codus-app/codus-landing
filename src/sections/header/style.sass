@@ -41,17 +41,23 @@ header
 
       display: inline-block
 
+      font-size: 24px
+
+      @media (min-width: 800px) and (max-width: 1000px)
+        font-size: calc(24px + (100vw - 1000px) / 40)
+
+
       h1
         display: inline-block
         white-space: nowrap
 
-        font-size: 90px
-        line-height: 110px
+        font-size: 3.75em
+        line-height: 1.22em
 
       p
         display: flex
         margin: 3px 0 0
-        font-size: 24px
+        font-size: 1em
         color: $light-text-hint
 
         &::after
