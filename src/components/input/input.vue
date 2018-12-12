@@ -3,7 +3,7 @@
     <label v-bind:for="_uid" class="title" v-if="title">{{ title }}</label>
     <div class="input-container">
       <input
-        type="text"
+        v-bind:type="password ? 'password' : 'text'"
         v-bind:id="_uid"
         v-bind:placeholder="placeholder"
         v-bind:value="value"

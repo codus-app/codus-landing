@@ -5,6 +5,7 @@ export default {
     title: String,
     placeholder: String,
     message: String,
+    password: Boolean,
     status: {
       type: String,
       validator: value => ['neutral', 'success', 'failure', 'loading'].includes(value),
