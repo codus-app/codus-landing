@@ -2,10 +2,10 @@
 import Vue from 'vue';
 
 // Feather icons
-import { UserIcon, LockIcon, AtSignIcon, MailIcon } from 'vue-feather-icons'; // eslint-disable-line object-curly-newline, max-len
-Vue.component('user-icon', UserIcon);
-Vue.component('lock-icon', LockIcon);
-Vue.component('at-sign-icon', AtSignIcon);
-Vue.component('mail-icon', MailIcon);
+import { CheckIcon, XIcon } from 'vue-feather-icons'; // eslint-disable-line object-curly-newline, max-len
+Vue.component('icon-check', CheckIcon);
+Vue.component('icon-x', XIcon);
 
 Vue.component('entry-form', require('./entry/entry.vue').default);
+Vue.component('text-input', require('./input/input.vue').default);
+Vue.component('spinner', require('./spinner/spinner.vue').default);
