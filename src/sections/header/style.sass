@@ -1,0 +1,66 @@
+@import 'src/styles/variables'
+
+header
+  position: relative
+  width: 100%
+  height: 90vh
+  background: $dark-2
+
+  $external-padding: 30px
+  $container-width: 1100px
+
+  .container
+    width: calc(100% - #{$external-padding * 2})
+    max-width: $container-width
+
+    position: absolute
+    top: calc(20px + 50%)
+    left: 50%
+    transform: translate(-50%, -50%)
+
+    display: flex
+
+
+    .left
+      flex-basis: 0
+      flex-grow: 0
+      flex-shrink: 0
+
+      display: inline-block
+
+      h1
+        display: inline-block
+        white-space: nowrap
+
+        font-size: 90px
+        line-height: 110px
+
+      p
+        display: flex
+        margin: 3px 0 0
+        font-size: 24px
+        color: $light-text-hint
+
+        &::after
+          content: attr(data-content)
+          display: block
+          flex-grow: 1
+          width: 0
+
+
+    .right
+      flex-basis: 0
+      flex-grow: 1
+      flex-shrink: 0
+      position: relative
+      margin-left: 40px
+
+      .login
+        height: 100%
+        width: 100%
+        max-width: 460px
+        position: absolute
+        right: 0
+
+        background: $white
+        border-radius: 8px
