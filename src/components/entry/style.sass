@@ -3,13 +3,45 @@
 .entry
   background: $white
   color: $dark-5
-
-  padding: 24px 16px
-  border-radius: 8px
-
   font-size: 35px
+
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  padding: 24px
+  border-radius: 8px
 
   h3
     text-align: center
     font-size: 1em
     line-height: 1.22em
+
+    &:last-of-type
+      margin-bottom: .5em
+
+  input
+    background: #eaeaea
+    padding: 14px 20px
+    border-radius: 6px
+    width: 100%
+    max-width: 340px
+
+    font-family: $font-1
+    font-size: 13px
+    font-weight: 500
+
+    &::placeholder
+      color: transparentize($dark-5, .5)
+
+    &:first-of-type
+      margin-top: auto
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+    // Overrides / resets
+    // sass-lint:disable-block declarations-before-nesting
+    border: 0
+    outline: 0
+    box-shadow: 0
