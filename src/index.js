@@ -8,6 +8,7 @@ import './style.sass';
 
 // Load components
 import './components';
+import './sections';
 
 import auth from './auth';
 window.auth = auth;
