@@ -20,6 +20,15 @@ header
 
     display: inline-flex
 
+    font-size: 24px
+
+    @media (min-width: 800px) and (max-width: 1000px)
+      font-size: calc(24px + (100vw - 1000px) / 40)
+
+    @media (max-width: 545px)
+      font-size: calc(24px + (100vw - 545px) / 20.15) // 20.15 is very much a Magic Number to make the header fit but yolo
+
+
     // Dynamic left padding that goes away to fit!
     // Starting when we're 60px shy of the "max width" of the container, ramp up the left padding
     // 1px for every 1px the window is resized. After it reaches 60px, start resizing as normal. The
@@ -56,15 +65,6 @@ header
 
       display: inline-block
 
-      font-size: 24px
-
-      @media (min-width: 800px) and (max-width: 1000px)
-        font-size: calc(24px + (100vw - 1000px) / 40)
-
-      @media (max-width: 545px)
-        font-size: calc(24px + (100vw - 545px) / 20.15) // 20.15 is very much a Magic Number but yolo
-
-
       h1
         display: inline-block
         white-space: nowrap
@@ -97,3 +97,5 @@ header
         max-width: 460px
         position: absolute
         right: 0
+
+        font-size: 1.45em
