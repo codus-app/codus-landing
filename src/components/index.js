@@ -7,3 +7,5 @@ Vue.component('user-icon', UserIcon);
 Vue.component('lock-icon', LockIcon);
 Vue.component('at-sign-icon', AtSignIcon);
 Vue.component('mail-icon', MailIcon);
+
+Vue.component('entry-form', require('./entry/entry.vue').default);

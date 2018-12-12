@@ -14,7 +14,7 @@
       </div>
 
       <div class="right">
-        <div class="login light"></div>
+        <entry-form></entry-form>
       </div>
     </div>
 
