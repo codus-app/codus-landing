@@ -7,7 +7,9 @@
         v-bind:id="_uid"
         v-bind:placeholder="placeholder"
         v-bind:value="value"
+
         v-on:input="onInput"
+        v-on:blur="$emit('blur')"
       >
 
       <div class="indicator-wrapper">
