@@ -9,3 +9,4 @@ Vue.component('icon-x', XIcon);
 Vue.component('entry-form', require('./entry/entry.vue').default);
 Vue.component('text-input', require('./input/input.vue').default);
 Vue.component('spinner', require('./spinner/spinner.vue').default);
+Vue.component('save-button', require('./save-button/save-button.vue').default);
