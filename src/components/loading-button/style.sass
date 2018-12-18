@@ -44,6 +44,15 @@
       transition: opacity .3s .15s
 
   &.disabled
-    background: transparentize($white, .9)
-    color: $light-text-hint
     cursor: not-allowed
+    transition: color .35s, background .35s
+
+    &.dark
+      background: transparentize($white, .9)
+      color: $light-text-hint
+      cursor: not-allowed
+
+    &.light
+      background: #eaeaea
+      color: transparentize($black, .6)
+      cursor: not-allowed

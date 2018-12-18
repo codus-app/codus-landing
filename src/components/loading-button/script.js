@@ -7,6 +7,11 @@ export default {
     onClick: Function,
     enabled: { type: Boolean, default: true },
     text: { type: String, default: 'Save' },
+    theme: {
+      type: String,
+      validator: value => ['light', 'dark'].includes(value),
+      default: 'dark',
+    },
   },
 
   methods: {
