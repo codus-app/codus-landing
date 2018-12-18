@@ -8,6 +8,7 @@
       v-model="email"
       placeholder="Email address"
       v-bind:status="emailStatus"
+      v-bind:message="emailMessage"
       theme="light"
     ></text-input>
 
