@@ -29,6 +29,11 @@ export default {
     showPasswordValidation() { return this.mode === 'signup' && this.showPasswordValidation2; },
     passwordStatus() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'failure' : this.passwordStatus2; },
     passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordMessage2; },
+
+    buttonEnabled() {
+      return this.emailValid && !['loading', 'failure'].includes(this.emailStatus)
+        && this.passwordLengthValid && this.passwordStatus !== 'failure';
+    },
   },
 
   methods: {
@@ -44,8 +49,14 @@ export default {
 
       this.lastCheckedEmail = this.email;
     },
+
+    submit() {
+      return new Promise((resolve) => {
+        console.log('yeet'); // eslint-disable-line no-console
+        resolve();
+      });
     },
-    },
+  },
 
   watch: {
     email() {

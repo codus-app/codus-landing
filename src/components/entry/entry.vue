@@ -24,6 +24,13 @@
 
       v-on:blur="showPasswordValidation2 = true"
     ></text-input>
+
+    <loading-button
+      v-bind:onClick="submit"
+      v-bind:enabled="buttonEnabled"
+      v-bind:text="mode === 'login' ? 'Log in' : 'Continue'"
+      theme="light"
+    ></loading-button>
   </div>
 </template>
 
