@@ -21,7 +21,7 @@
         }[status]" v-bind:color="theme === 'dark' ? 'white' : '#232327'"></component>
       </div>
     </div>
-    <div class="message">{{ message }}</div>
+    <div class="message">{{ message || '\xa0' }}</div>
   </div>
 </template>
 
