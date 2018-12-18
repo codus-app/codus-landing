@@ -10,14 +10,19 @@
       v-bind:status="emailStatus"
       v-bind:message="emailMessage"
       theme="light"
+
+      v-on:blur="checkEmail"
     ></text-input>
 
     <text-input
       v-model="password"
       placeholder="Password"
       v-bind:status="passwordStatus"
-      theme="light"
+      v-bind:message="passwordMessage"
       :password="true"
+      theme="light"
+
+      v-on:blur="showPasswordValidation2 = true"
     ></text-input>
   </div>
 </template>
