@@ -60,7 +60,7 @@ export default {
           auth.login(this.email, this.password)
             .catch((err) => {
               this.passwordStatus2 = 'failure';
-              this.passwordMessage2 = err.description;
+              if (err.code === 'access_denied') { this.passwordMessage2 = 'Wrong password.'; } // Email was already confirmed
               resolve(); // stop spinning (even though login failed)
             });
         } else {
