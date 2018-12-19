@@ -1,6 +1,8 @@
 import isEmail from 'validator/lib/isEmail';
 import isByteLength from 'validator/lib/isByteLength';
 import * as api from '../../api';
+import auth from '../../auth';
+
 
 export default {
   data: () => ({
@@ -17,6 +19,7 @@ export default {
     accountExists: null,
     lastCheckedEmail: null,
   }),
+
 
   computed: {
     mode() { return this.accountExists ? 'login' : 'signup'; },
@@ -36,6 +39,7 @@ export default {
     },
   },
 
+
   methods: {
     async checkEmail() {
       this.showEmailValidation = true;
@@ -52,11 +56,16 @@ export default {
 
     submit() {
       return new Promise((resolve) => {
-        console.log('yeet'); // eslint-disable-line no-console
+        if (this.mode === 'login') {
+          auth.login(this.email, this.password);
+        } else {
+          console.log('yeet');
         resolve();
+        }
       });
     },
   },
+
 
   watch: {
     email() {
