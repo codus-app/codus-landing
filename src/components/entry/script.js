@@ -57,7 +57,12 @@ export default {
     submit() {
       return new Promise((resolve) => {
         if (this.mode === 'login') {
-          auth.login(this.email, this.password);
+          auth.login(this.email, this.password)
+            .catch((err) => {
+              this.passwordStatus2 = 'failure';
+              this.passwordMessage2 = err.description;
+              resolve(); // stop spinning (even though login failed)
+            });
         } else {
           console.log('yeet');
         resolve();
