@@ -36,7 +36,8 @@ export default {
     passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordMessage2; },
 
     buttonEnabled() {
-      return this.emailValid && !['loading', 'failure'].includes(this.emailStatus)
+      //     good email         email has been looked up and form has been placed in correct state
+      return this.emailValid && this.email === this.lastCheckedEmail
         && this.password.length >= (this.mode === 'login' ? 1 : 8);
     },
   },
@@ -62,6 +63,7 @@ export default {
 
     submit() {
       return new Promise((resolve) => {
+        // Log in
         if (this.mode === 'login') {
           auth.login(this.email, this.password)
             .catch((err) => {
@@ -69,6 +71,8 @@ export default {
               if (err.code === 'access_denied') { this.passwordMessage2 = 'Wrong password.'; } // Email was already confirmed
               resolve(); // stop spinning (even though login failed)
             });
+
+        // Continue to the next page of signup
         } else {
           console.log('yeet');
           resolve();
