@@ -35,7 +35,7 @@ export default {
 
     buttonEnabled() {
       return this.emailValid && !['loading', 'failure'].includes(this.emailStatus)
-        && this.passwordLengthValid && this.passwordStatus !== 'failure';
+        && this.password.length >= (this.mode === 'login' ? 1 : 8);
     },
   },
 
@@ -65,7 +65,7 @@ export default {
             });
         } else {
           console.log('yeet');
-        resolve();
+          resolve();
         }
       });
     },
