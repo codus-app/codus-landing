@@ -15,11 +15,13 @@ import './style.sass';
 
 // Load components
 import './components';
-import './sections';
+import sections from './sections';
 
 import auth from './auth';
 window.auth = auth;
 
 window.app = new Vue({
   el: '#app',
+
+  data: { sections },
 });
