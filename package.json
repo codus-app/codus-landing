@@ -63,6 +63,7 @@
     "jwt-decode": "^2.2.0",
     "promise-polyfill": "^8.1.0",
     "serve": "^10.1.1",
+    "smoothscroll-polyfill": "^0.4.3",
     "validator": "^10.9.0",
     "vue": "^2.5.17",
     "vue-feather-icons": "^4.7.1",

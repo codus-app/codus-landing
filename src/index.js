@@ -1,7 +1,9 @@
+/* eslint-disable import/first */
 import 'babel-polyfill';
 import 'promise-polyfill';
 import 'abortcontroller-polyfill';
 import 'whatwg-fetch';
+import smoothscroll from 'smoothscroll-polyfill'; smoothscroll.polyfill();
 
 import Vue from 'vue';
 
