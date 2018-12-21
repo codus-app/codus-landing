@@ -16,6 +16,21 @@
   align-items: stretch
   justify-content: center
 
+  .logo
+    position: absolute
+    top: 0
+    left: 0
+    $logo-width: 120px
+    width: $logo-width
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+    @media (max-width: $max-window-width + ($logo-width - $max-padding-left))
+      display: none
+
+
   .container
     @include container
     display: flex

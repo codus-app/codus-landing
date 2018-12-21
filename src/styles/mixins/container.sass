@@ -1,5 +1,9 @@
 $external-padding: 30px
 $container-width: 1100px
+// Add the padding because this is window width, not container width
+   This is the smallest window width at which the container is at its full width
+$max-window-width: $container-width + $external-padding * 2
+$max-padding-left: 60px
 
 // Make items horizontally centered on the page have a standard left/right margin that lines up with
    the header layout
@@ -12,8 +16,6 @@ $container-width: 1100px
   // 1px for every 1px the window is resized. After it reaches 60px, start resizing as normal. The
   // effect is that as the window is expanded, the left padding expands before the right padding
   // starts to, and remains offset by 60px.
-  $max-padding-left: 60px
-  $max-window-width: $container-width + $external-padding * 2 // Add the padding because this is window width, not container width
   $start: $max-window-width - $max-padding-left
   @media (min-width: $start)
     padding-left: calc((100vw - #{$start}))

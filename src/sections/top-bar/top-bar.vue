@@ -1,14 +1,16 @@
 <template>
   <div class="top-bar">
+    <logo></logo>
+
     <div class="container">
 
-    <span
-      class="link"
-      v-for="(link, i) in links"
-      v-bind:key="i"
-    >
-      {{ link.name }}
-    </span>
+      <span
+        class="link"
+        v-for="(link, i) in links"
+        v-bind:key="i"
+      >
+        {{ link.name }}
+      </span>
 
     </div>
   </div>
