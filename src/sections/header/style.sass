@@ -1,4 +1,6 @@
 @import 'src/styles/variables'
+@import 'src/styles/mixins/container'
+
 
 header
   position: relative
@@ -11,13 +13,8 @@ header
   justify-content: center
   padding: 110px 0 50px
 
-  $external-padding: 30px
-  $container-width: 1100px
-
   .container
-    width: calc(100% - #{$external-padding * 2})
-    max-width: $container-width
-
+    @include container
     display: inline-flex
 
     font-size: 24px
@@ -27,20 +24,6 @@ header
 
     @media (max-width: 545px)
       font-size: calc(24px + (100vw - 545px) / 20.15) // 20.15 is very much a Magic Number to make the header fit but yolo
-
-
-    // Dynamic left padding that goes away to fit!
-    // Starting when we're 60px shy of the "max width" of the container, ramp up the left padding
-    // 1px for every 1px the window is resized. After it reaches 60px, start resizing as normal. The
-    // effect is that as the window is expanded, the left padding expands before the right padding
-    // starts to, and remains offset by 60px.
-    $max-padding-left: 60px
-    $max-window-width: $container-width + $external-padding * 2 // Add the padding because this is window width, not container width
-    $start: $max-window-width - $max-padding-left
-    @media (min-width: $start)
-      padding-left: calc((100vw - #{$start}))
-    @media (min-width: $start + $max-padding-left)
-      padding-left: $max-padding-left
 
     // Vertical mobile layout
     @media (max-width: 799px)
