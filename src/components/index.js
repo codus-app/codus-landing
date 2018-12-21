@@ -6,6 +6,8 @@ import { CheckIcon, XIcon } from 'vue-feather-icons'; // eslint-disable-line obj
 Vue.component('icon-check', CheckIcon);
 Vue.component('icon-x', XIcon);
 
+Vue.component('logo', require('./logo.vue').default);
+
 Vue.component('entry-form', require('./entry/entry.vue').default);
 Vue.component('text-input', require('./input/input.vue').default);
 Vue.component('spinner', require('./spinner/spinner.vue').default);
