@@ -7,5 +7,6 @@ Vue.component('features-section', require('./features/features.vue').default);
 export default [
   {
     name: 'Features',
+    target: '#features',
   },
 ];

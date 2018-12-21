@@ -8,6 +8,7 @@
         class="link"
         v-for="(link, i) in links"
         v-bind:key="i"
+        v-on:click="scrollToSection(link.target)"
       >
         {{ link.name }}
       </span>
