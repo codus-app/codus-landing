@@ -1,8 +1,8 @@
 <template>
   <section id="features">
-    <container>
+    <div class="container">
       <h2>Features</h2>
-    </container>
+    </div>
   </section>
 </template>
 
