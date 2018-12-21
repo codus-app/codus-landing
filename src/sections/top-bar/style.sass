@@ -1,4 +1,6 @@
 @import 'src/styles/variables'
+@import 'src/styles/mixins/container'
+
 
 .top-bar
   position: fixed
@@ -9,6 +11,8 @@
 
   background: $dark-2
 
+  .container
+    @include container
   .link
     color: transparentize($white, .5)
     font-size: 16px

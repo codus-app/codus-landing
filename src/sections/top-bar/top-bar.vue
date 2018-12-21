@@ -1,5 +1,6 @@
 <template>
   <div class="top-bar">
+    <div class="container">
 
     <span
       class="link"
@@ -9,6 +10,7 @@
       {{ link.name }}
     </span>
 
+    </div>
   </div>
 </template>
 
