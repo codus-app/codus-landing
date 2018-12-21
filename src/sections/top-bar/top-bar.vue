@@ -1,6 +1,6 @@
 <template>
   <div class="top-bar">
-    <logo></logo>
+    <logo v-on:click.native="scrollToTop"></logo>
 
     <div class="container">
 
