@@ -1,6 +1,6 @@
 <!-- Combined login and signup form -->
 <template>
-  <div class="entry light">
+  <form class="entry light">
     <h3>Start learning today.</h3>
     <h3 class="green">Let's get started.</h3>
 
@@ -34,7 +34,7 @@
       v-bind:text="mode === 'login' ? 'Log in' : 'Continue'"
       theme="light"
     ></loading-button>
-  </div>
+  </form>
 </template>
 
 <script src="./script.js"></script>
