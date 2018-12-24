@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/controversial/codus.git"
+    "url": "git+https://github.com/codus-app/codus-landing.git"
   },
   "author": "Luke Deen Taylor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/controversial/codus/issues"
+    "url": "https://github.com/codus-app/codus-landing/issues"
   },
-  "homepage": "https://github.com/controversial/codus#readme",
+  "homepage": "https://github.com/codus-app/codus-landing#readme",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
