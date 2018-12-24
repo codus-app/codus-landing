@@ -4,6 +4,7 @@
     <div class="input-container">
       <input
         v-bind:id="_uid"
+        v-bind:name="name"
         v-bind:type="type"
         v-bind:placeholder="placeholder"
         v-bind:value="value"

@@ -6,6 +6,7 @@
 
     <text-input
       v-model="email"
+      name="email"
       type="email"
       placeholder="Email address"
       v-bind:status="emailStatus"
@@ -17,6 +18,7 @@
 
     <text-input
       v-model="password"
+      name="password"
       type="password"
       placeholder="Password"
       v-bind:status="passwordStatus"

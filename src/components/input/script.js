@@ -3,6 +3,7 @@ export default {
     value: String,
 
     title: String,
+    name: String,
     placeholder: String,
     message: String,
     type: { type: String, default: 'text' },
