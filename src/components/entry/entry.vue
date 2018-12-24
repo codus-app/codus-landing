@@ -6,6 +6,7 @@
 
     <text-input
       v-model="email"
+      type="email"
       placeholder="Email address"
       v-bind:status="emailStatus"
       v-bind:message="emailMessage"
@@ -16,10 +17,10 @@
 
     <text-input
       v-model="password"
+      type="password"
       placeholder="Password"
       v-bind:status="passwordStatus"
       v-bind:message="passwordMessage"
-      :password="true"
       theme="light"
 
       v-on:blur="showPasswordValidation2 = true"
