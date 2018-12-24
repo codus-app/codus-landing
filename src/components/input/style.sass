@@ -75,6 +75,10 @@ $height: ($font-size * 1.25) + ($padding * 2)
     border: 0
     box-shadow: 0
 
+    &:-webkit-autofill
+      animation-name: autoFill
+      transition: background-color 50000s
+
   .message
     width: 100%
     margin-left: $radius
@@ -121,3 +125,5 @@ $height: ($font-size * 1.25) + ($padding * 2)
     .indicator,
     .message
       color: $red-solid
+
+@keyframes autoFill

@@ -11,6 +11,7 @@
 
         v-on:input="onInput"
         v-on:blur="$emit('blur')"
+        v-on:animationstart="$emit('autofill')"
       >
 
       <div class="indicator-wrapper">
