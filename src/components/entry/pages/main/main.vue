@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="page main">
     <h3 class="green">Let's get started.</h3>
 
     <text-input

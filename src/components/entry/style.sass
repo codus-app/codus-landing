@@ -12,13 +12,29 @@
   padding: 24px
   border-radius: 8px
 
+  overflow: hidden
+
   & /deep/ h3
     text-align: center
     font-size: 1em
     line-height: 1.22em
 
-  .page
-    flex-grow: 1
+  .page-switch
+    position: relative
+    flex-grow: 1 // Full height
+    width: calc(200% + 48px)
+    align-self: flex-start
+    transition: transform .35s
+
+    display: flex
+
+    .page
+      width: calc((100% - 48px) / 2)
+      margin-right: 48px // Double the .entry padding
+
+  &.page-2
+    .page-switch
+      transform: translate(-50%)
 
   .loading-button
     transition: color .35s, background .35s, border-radius .25s, width .45s
