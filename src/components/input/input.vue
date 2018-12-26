@@ -7,6 +7,7 @@
         v-bind:name="name"
         v-bind:type="type"
         v-bind:placeholder="placeholder"
+        v-bind:autocomplete="autofill ? '' : 'new-password'"
         v-bind:value="value"
 
         v-on:input="onInput"
