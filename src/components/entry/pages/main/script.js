@@ -38,7 +38,9 @@ export default {
       return this.emailValid && this.email === this.lastCheckedEmail
         // Password must be 8 characters for new signups but we don't care if you already have a
         // password that's shorter somehow
-        && this.password.length >= (this.mode === 'login' ? 1 : 8);
+        && this.password.length >= (this.mode === 'login' ? 1 : 8)
+        // No server-side errors unaddressed
+        && !this.emailError && !this.passwordError;
     },
   },
 
