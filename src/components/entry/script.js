@@ -10,6 +10,8 @@ export default {
     username: '',
     name: '',
 
+    errors: [],
+
     mode: 'signup',
     mainPageValid: false,
     page2Valid: false,
@@ -59,5 +61,18 @@ export default {
         }
       });
     },
+
+    // Get the first server-side error for any field
+    getError(searchKey) { return (this.errors.find(({ key }) => key === searchKey) || { message: '' }).message; },
+    // Clear all server-side errors for any field
+    clearErrors(searchKey) { this.errors = this.errors.filter(({ key }) => key !== searchKey); },
+  },
+
+  // Clear server-side errors when that field is modified
+  watch: {
+    email() { this.clearErrors('email'); },
+    password() { this.clearErrors('password'); },
+    username() { this.clearErrors('username'); },
+    name() { this.clearErrors('name'); },
   },
 };

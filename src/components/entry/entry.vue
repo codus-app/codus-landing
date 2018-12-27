@@ -8,6 +8,8 @@
       <main-page
         v-on:emailchange="email = $event"
         v-on:passwordchange="password = $event"
+        v-bind:emailError="getError('email')"
+        v-bind:passwordError="getError('password')"
 
         v-on:modechange="mode = $event"
         v-on:validationchange="mainPageValid = $event"
@@ -16,6 +18,8 @@
       <signup-page-2
         v-on:usernamechange="username = $event"
         v-on:namechange="name = $event"
+        v-bind:usernameError="getError('username')"
+        v-bind:nameError="getError('name')"
 
         v-on:validationchange="page2Valid = $event"
       ></signup-page-2>
