@@ -8,12 +8,9 @@ import * as api from '../../../../api';
 export default {
   data: () => ({
     email: '',
-    emailStatus2: 'neutral', // These get overriden when an email address is incorrectly formatted
-    emailMessage2: '',
+    emailStatus2: 'neutral', // This gets overriden when an email address is incorrectly formatted
 
     password: '',
-    passwordStatus2: 'neutral',
-    passwordMessage2: '',
 
     showEmailValidation: false,
     showPasswordValidation2: false,

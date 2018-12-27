@@ -29,14 +29,14 @@ export default {
 
   methods: {
     submit() {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         // Log in
         if (this.page === 1 && this.mode === 'login') {
           auth.login(this.email, this.password)
             .catch((err) => {
-              this.passwordStatus2 = 'failure';
-              if (err.code === 'access_denied') { this.passwordMessage2 = 'Wrong password.'; } // Email was already confirmed
-              resolve(); // stop spinning (even though login failed)
+              // Email was already confirmed, so password has to eb the thing that's wrong
+              if (err.code === 'access_denied') this.errors = [{ key: 'password', message: 'Wrong password.' }];
+              reject();
             });
         }
 
