@@ -71,13 +71,12 @@ export default {
       this.showEmailValidation = true;
 
       if (this.emailValid && this.email !== this.lastCheckedEmail) {
+        this.lastCheckedEmail = this.email;
         this.emailStatus2 = 'loading';
         const { exists, available } = await api.get({ endpoint: `/user-check/email/${this.email}` });
         this.emailStatus2 = available ? 'success' : 'neutral';
         this.accountExists = exists;
       }
-
-      this.lastCheckedEmail = this.email;
     },
     debouncedCheckEmail: debounce(function checkEmail2() { this.checkEmail(); }, 750),
 

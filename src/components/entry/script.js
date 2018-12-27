@@ -7,9 +7,12 @@ export default {
 
     email: '',
     password: '',
+    username: '',
+    name: '',
 
     mode: 'signup',
     mainPageValid: false,
+    page2Valid: false,
   }),
 
   components: {

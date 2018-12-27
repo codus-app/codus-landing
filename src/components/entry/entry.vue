@@ -13,13 +13,18 @@
         v-on:validationchange="mainPageValid = $event"
       ></main-page>
 
-      <signup-page-2></signup-page-2>
+      <signup-page-2
+        v-on:usernamechange="username = $event"
+        v-on:namechange="name = $event"
+
+        v-on:validationchange="page2Valid = $event"
+      ></signup-page-2>
 
     </div>
 
     <loading-button
       v-bind:onClick="submit"
-      v-bind:enabled="mainPageValid"
+      v-bind:enabled="[mainPageValid, page2Valid][page - 1]"
       v-bind:text="buttonText"
       theme="light"
     ></loading-button>
