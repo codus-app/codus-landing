@@ -18,18 +18,20 @@ export default {
     lastCheckedEmail: null,
   }),
 
+  props: ['emailError', 'passwordError'],
+
   computed: {
     mode() { return this.accountExists ? 'login' : 'signup'; },
 
     emailValid() { return isEmail(this.email); },
     passwordLengthValid() { return isByteLength(this.password, { min: 8 }); },
 
-    emailStatus() { return (this.showEmailValidation && !this.emailValid) ? 'failure' : this.emailStatus2; },
-    emailMessage() { return (this.showEmailValidation && !this.emailValid) ? 'Invalid email' : this.emailMessage2; },
+    emailStatus() { return (this.emailError || (this.showEmailValidation && !this.emailValid)) ? 'failure' : this.emailStatus2; },
+    emailMessage() { return (this.showEmailValidation && !this.emailValid) ? 'Invalid email' : this.emailError; },
 
     showPasswordValidation() { return this.mode === 'signup' && this.showPasswordValidation2; },
-    passwordStatus() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'failure' : this.passwordStatus2; },
-    passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordMessage2; },
+    passwordStatus() { return (this.passwordError || (this.showPasswordValidation && !this.passwordLengthValid)) ? 'failure' : 'neutral'; },
+    passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordError; },
 
     canProceed() {
       //     good email         email has been looked up
