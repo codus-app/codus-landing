@@ -26,7 +26,7 @@ export default {
       if (this.usernameError) return 'failure';
       if (!this.showUsernameValidation) return 'neutral';
       // Fail if basic validation fails
-      if (!this.usernameLengthValid || !this.usernameCharsValid) return 'failure';
+      if (this.username.length && (!this.usernameLengthValid || !this.usernameCharsValid)) return 'failure';
       // Neutral while typing; after stop, load until success/failure
       if (this.usernameLoading) return 'loading';
       if (this.username !== this.lastCheckedUsername) return 'neutral';
@@ -35,7 +35,7 @@ export default {
     usernameMessage() {
       if (this.usernameError) return this.usernameError; // Any server-side errors
       if (!this.showUsernameValidation) return '';
-      if (!this.usernameLengthValid) return 'Must be between 1 and 15 characters';
+      if (this.username.length && !this.usernameLengthValid) return 'Must be between 1 and 15 characters';
       if (!this.usernameCharsValid) return 'Must only contain lowercase letters, numbers, and underscores';
       if (this.username === this.lastCheckedUsername && !this.usernameLoading && this.usernameAvailable === false) return 'That username is taken!';
       return '';
