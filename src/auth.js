@@ -2,6 +2,7 @@
 
 import auth0 from 'auth0-js';
 import jwtDecode from 'jwt-decode';
+import * as api from './api';
 
 
 const webAuth = new auth0.WebAuth({
@@ -19,15 +20,23 @@ export default {
   jwtDecode,
 
   // Log in with a username and password
-  login(username, password) {
+  login(email, password) {
     return new Promise((resolve, reject) => {
       webAuth.login({
-        username,
+        email,
         password,
       }, (err) => {
         reject(err);
       });
     });
+  },
+
+  signup(email, password, username, name) {
+    return api.post({
+      endpoint: '/user',
+      body: { username, name, email, password }, // eslint-disable-line object-curly-newline
+    })
+      .then(() => this.login(email, password));
   },
 
   // See if the user is authenticated
