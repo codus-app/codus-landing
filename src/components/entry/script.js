@@ -49,7 +49,13 @@ export default {
         }
 
         if (this.page === 2) {
-          // sign up
+          // eslint-disable-next-line object-curly-newline
+          const { email, password, username, name } = this;
+          auth.signup(email, password, username, name)
+            .catch((e) => {
+              this.errors = e;
+              reject();
+            });
         }
       });
     },
