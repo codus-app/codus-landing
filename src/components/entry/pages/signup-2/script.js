@@ -15,12 +15,15 @@ export default {
     showUsernameValidation: false,
   }),
 
+  props: ['usernameError', 'nameError'], // Server-side errors get passed in from outside
+
   computed: {
     // Username
     usernameLengthValid() { return isByteLength(this.username, { min: 1, max: 15 }); },
     usernameCharsValid() { return !this.username.match(/[^a-z0-9_]/); },
     usernameValid() { return this.usernameLengthValid && this.usernameCharsValid; },
     usernameStatus() {
+      if (this.usernameError) return 'failure';
       if (!this.showUsernameValidation) return 'neutral';
       // Fail if basic validation fails
       if (!this.usernameLengthValid || !this.usernameCharsValid) return 'failure';
@@ -30,6 +33,7 @@ export default {
       return this.usernameAvailable ? 'success' : 'failure';
     },
     usernameMessage() {
+      if (this.usernameError) return this.usernameError; // Any server-side errors
       if (!this.showUsernameValidation) return '';
       if (!this.usernameLengthValid) return 'Must be between 1 and 15 characters';
       if (!this.usernameCharsValid) return 'Must only contain lowercase letters, numbers, and underscores';
@@ -39,18 +43,19 @@ export default {
 
     // Display name
     nameLengthValid() { return isByteLength(this.name, { min: 1, max: 25 }); },
-    nameStatus() { return this.name.length && !this.nameLengthValid ? 'failure' : 'neutral'; },
+    nameStatus() { return (this.nameError || (this.name.length && !this.nameLengthValid)) ? 'failure' : 'neutral'; },
     nameMessage() {
+      if (this.nameError) return this.nameError; // Any server-side errors
       if (this.name.length && !this.nameLengthValid) return 'Must be between 1 and 25 characters';
       return '';
     },
 
     canProceed() {
-      //     good username      username has been looked up
-      return this.usernameValid
-        && this.usernameAvailable
-        && this.username === this.lastCheckedUsername
-        && this.nameLengthValid;
+      return this.usernameValid // Good username
+        && this.usernameAvailable // Available
+        && this.username === this.lastCheckedUsername // Has been looked up
+        && this.nameLengthValid // Name is fine
+        && !this.usernameError && !this.nameError; // No server-side errors unaddressed
     },
   },
 
