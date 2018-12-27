@@ -19,7 +19,18 @@ async function apiRequest({ endpoint, method, heads, body, signal }) {
     });
 }
 
-/** Perform a GET request and return a promise */
+/** Perform a GET request */
 export function get({ endpoint, signal }) {
   return apiRequest({ endpoint, method: 'GET', signal });
+}
+
+/** Perform a POST request */
+export function post(args) {
+  const { body, contentType = 'application/json' } = args;
+  return apiRequest({
+    ...args,
+    method: 'POST',
+    heads: { 'Content-Type': contentType },
+    body: contentType === 'application/json' ? JSON.stringify(body) : body,
+  });
 }
