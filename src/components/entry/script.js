@@ -56,6 +56,8 @@ export default {
           auth.signup(email, password, username, name)
             .catch((e) => {
               this.errors = e;
+              // Go back if the email or password was wrong
+              if (this.getError('email') || this.getError('password')) this.page = 1;
               reject();
             });
         }
