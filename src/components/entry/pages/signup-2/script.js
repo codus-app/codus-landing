@@ -53,7 +53,7 @@ export default {
     canProceed() {
       return this.usernameValid // Good username
         && this.usernameAvailable // Available
-        && this.username === this.lastCheckedUsername // Has been looked up
+        && this.username === this.lastCheckedUsername && !this.usernameLoading // Has been looked up
         && this.nameLengthValid // Name is fine
         && !this.usernameError && !this.nameError; // No server-side errors unaddressed
     },
