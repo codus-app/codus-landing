@@ -1,3 +1,5 @@
+@import 'src/styles/variables'
+
 .main
   display: flex
   flex-direction: column
@@ -15,3 +17,24 @@
 
     &:first-of-type
       margin-top: auto
+
+  .password-reset
+    position: absolute
+    right: 4px
+    transform: translateY(-16px)
+
+    font-size: 12px
+    color: transparentize($dark-5, .25)
+    text-decoration: underline
+    cursor: pointer
+
+    transition: opacity .35s
+
+    &.invisible
+      opacity: 0
+      pointer-events: none
+
+    &.disabled
+      opacity: .66
+      text-decoration: none
+      pointer-events: none

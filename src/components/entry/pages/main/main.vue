@@ -24,7 +24,15 @@
       theme="light"
 
       v-on:blur="showPasswordValidation2 = true"
-    ></text-input>
+    >
+      <div
+        class="password-reset"
+        v-on:click="passwordReset"
+        v-bind:class="{ invisible: mode !== 'login', disabled: resetting !== null }"
+      >
+        {{ { null: 'Forgot passsword?', true: 'Sending...', false: 'Email sent' }[resetting] }}
+      </div>
+    </text-input>
   </div>
 </template>
 

@@ -3,7 +3,7 @@ import isEmail from 'validator/lib/isEmail';
 import isByteLength from 'validator/lib/isByteLength';
 
 import * as api from '../../../../api';
-
+import auth from '../../../../auth';
 
 export default {
   data: () => ({
@@ -16,6 +16,7 @@ export default {
     showPasswordValidation2: false,
     accountExists: null,
     lastCheckedEmail: null,
+    resetting: null,
   }),
 
   props: ['emailError', 'passwordError'],
@@ -82,5 +83,13 @@ export default {
     debouncedCheckEmail: debounce(function checkEmail2() { this.checkEmail(); }, 750),
 
     debouncedPasswordValidate: debounce(function a() { this.showPasswordValidation2 = true; }, 750),
+
+    async passwordReset() {
+      if (this.mode === 'login') {
+        this.resetting = true;
+        await auth.requestPasswordReset(this.email);
+        this.resetting = false;
+      }
+    },
   },
 };
