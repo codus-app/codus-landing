@@ -1,5 +1,5 @@
 <template>
-  <span class="logo">Logo</span>
+  <span class="logo">Codus</span>
 </template>
 
 <style scoped lang="sass">
