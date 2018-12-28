@@ -1,0 +1,48 @@
+@import 'src/styles/variables'
+@import 'src/styles/mixins/container'
+
+
+.top-bar
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 60px
+  z-index: 100
+
+  background: $dark-2
+
+  display: flex
+  align-items: stretch
+  justify-content: center
+
+  .logo
+    position: absolute
+    top: 0
+    left: 0
+    $logo-width: 120px
+    width: $logo-width
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+
+    @media (max-width: $max-window-width + ($logo-width - $max-padding-left))
+      display: none
+
+
+  .container
+    @include container
+    display: flex
+    align-items: center
+
+  .link
+    color: transparentize($white, .5)
+    font-size: 16px
+    font-family: $font-nunito
+    font-weight: 400
+    letter-spacing: .25px
+    user-select: none
+    cursor: pointer
+

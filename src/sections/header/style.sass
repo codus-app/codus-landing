@@ -1,0 +1,89 @@
+@import 'src/styles/variables'
+@import 'src/styles/mixins/container'
+
+
+header
+  position: relative
+  min-height: 90vh
+  background: $dark-2
+  align-items: center
+  padding: 110px 0 50px
+
+  .container
+    @include container
+    display: inline-flex
+
+    font-size: 24px
+
+    @media (min-width: 800px) and (max-width: 1000px)
+      font-size: calc(24px + (100vw - 1000px) / 40)
+
+    @media (max-width: 545px)
+      font-size: calc(24px + (100vw - 545px) / 20.15) // 20.15 is very much a Magic Number to make the header fit but yolo
+
+    // Vertical mobile layout
+    @media (max-width: 799px)
+      width: auto
+      flex-direction: column
+      align-items: center
+      padding: 30px
+
+      div.right
+        align-self: stretch
+        margin-left: 0
+        margin-top: 20px
+
+        .entry
+          position: static
+          max-width: none
+
+
+    .left
+      flex-basis: 0 // sass-lint:disable-line empty-line-between-blocks
+      flex-grow: 0
+      flex-shrink: 0
+
+      display: inline-block
+
+      h1
+        display: inline-block
+        white-space: nowrap
+
+        font-size: 3.75em
+        line-height: 1.22em
+
+        span.green
+          background: $green-gradient
+          -webkit-text-fill-color: transparent
+          -webkit-background-clip: text
+
+      p
+        display: flex
+        margin: 3px 0 0
+        font-family: $font-nunito
+        font-weight: 400
+        font-size: 1em
+        color: $light-text-hint
+
+        &::after
+          content: attr(data-content)
+          display: block
+          flex-grow: 1
+          width: 0
+
+
+    .right
+      flex-basis: 0
+      flex-grow: 1
+      flex-shrink: 0
+      position: relative
+      margin-left: 40px
+
+      .entry
+        width: 100%
+        max-width: 460px
+        min-height: 100%
+        position: absolute
+        right: 0
+
+        font-size: 1.45em

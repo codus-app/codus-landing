@@ -2,22 +2,13 @@
 import Vue from 'vue';
 
 // Feather icons
-import { UserIcon, LockIcon, AtSignIcon, MailIcon } from 'vue-feather-icons';
-Vue.component('user-icon', UserIcon);
-Vue.component('lock-icon', LockIcon);
-Vue.component('at-sign-icon', AtSignIcon);
-Vue.component('mail-icon', MailIcon);
+import { CheckIcon, XIcon } from 'vue-feather-icons'; // eslint-disable-line object-curly-newline, max-len
+Vue.component('icon-check', CheckIcon);
+Vue.component('icon-x', XIcon);
 
-// Internal components
-import Starfield from './starfield';
-import Modal from './modal/modal.vue';
-import Login from './login/login.vue';
-import Signup from './signup/signup.vue';
-import TopBar from './top-bar/top-bar.vue';
-import AuthButtons from './auth-buttons.vue';
-Vue.component('starfield', Starfield);
-Vue.component('modal', Modal);
-Vue.component('login', Login);
-Vue.component('signup', Signup);
-Vue.component('top-bar', TopBar);
-Vue.component('auth-buttons', AuthButtons);
+Vue.component('logo', require('./logo.vue').default);
+
+Vue.component('entry-form', require('./entry/entry.vue').default);
+Vue.component('text-input', require('./input/input.vue').default);
+Vue.component('spinner', require('./spinner/spinner.vue').default);
+Vue.component('loading-button', require('./loading-button/loading-button.vue').default);

@@ -1,0 +1,43 @@
+@import 'src/styles/variables'
+
+.entry
+  background: $white
+  color: $dark-5
+  font-size: 35px
+
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  padding: 24px
+  border-radius: 8px
+
+  overflow: hidden
+
+  & /deep/ h3
+    text-align: center
+    font-size: 1em
+    line-height: 1.22em
+
+  .page-switch
+    position: relative
+    flex-grow: 1 // Full height
+    width: calc(200% + 48px)
+    align-self: flex-start
+    transition: transform .35s
+
+    display: flex
+
+    .page
+      position: relative
+      flex-shrink: 0
+      width: calc((100% - 48px) / 2)
+      margin-right: 24px // Double the .entry padding
+
+  &.page-2
+    .page-switch
+      transform: translate(-50%)
+
+  .loading-button
+    transition: color .35s, background .35s, border-radius .25s, width .45s
+    margin-top: .25rem

@@ -7,8 +7,10 @@ $light-text-tertiary: transparentize($white, .25)
 $light-text-hint: transparentize($white, .6)
 
 $dark-1: #131313
-$dark-2: #1b1b1d
-$dark-3: #1e1e21
+$dark-2: #1a1a1f
+$dark-3: #1b1b1d
+$dark-4: #1e1e21
+$dark-5: #232327
 
 $background: $dark-3
 
@@ -17,8 +19,9 @@ $green-1: #4deb9b
 $green-2: #1db965
 $green-gradient: linear-gradient(160deg, $green-1, $green-2)
 $green-solid: #3de589
-$green-text: #4cba7e
 $green-bg: #3bdb83
+$green-text-dark-bg: $green-solid
+$green-text-light-bg: $green-bg
 
 // Communicates an intermediate state
 $yellow-1: #fae864
@@ -36,3 +39,12 @@ $gray-1: desaturate($green-1, 100%)
 $gray-2: desaturate($green-2, 100%)
 $gray-gradient: linear-gradient(160deg, $gray-1, $gray-2)
 $gray-solid: #8e8e8e
+
+
+
+.green
+  color: $green-solid
+
+.light
+  .green
+    color: $green-bg

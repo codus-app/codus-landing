@@ -1,3 +1,10 @@
+/* eslint-disable import/first */
+import 'babel-polyfill';
+import 'promise-polyfill';
+import 'abortcontroller-polyfill';
+import 'whatwg-fetch';
+import smoothscroll from 'smoothscroll-polyfill'; smoothscroll.polyfill();
+
 import Vue from 'vue';
 
 // HTML
@@ -8,21 +15,13 @@ import './style.sass';
 
 // Load components
 import './components';
+import sections from './sections';
 
 import auth from './auth';
 window.auth = auth;
 
 window.app = new Vue({
-  data: { showTitle: true },
   el: '#app',
 
-  mounted() {
-    if (auth.isAuthenticated()) window.location.href = '/app';
-
-    this.$refs.loginModal.$on('show', () => { this.showTitle = false; });
-    this.$refs.signupModal.$on('show', () => { this.showTitle = false; });
-    this.$refs.loginModal.$on('close', () => { this.showTitle = true; });
-    this.$refs.signupModal.$on('close', () => { this.showTitle = true; });
-  },
-
+  data: { sections },
 });

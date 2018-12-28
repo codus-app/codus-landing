@@ -14,7 +14,7 @@ module.exports = {
       // SASS files
       {
         test: /\.sass$/,
-        loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        loaders: ['style-loader', 'css-loader', 'postcss-loader', { loader: 'sass-loader', options: { indentedSyntax: true } }],
       },
       // CSS files
       {
@@ -25,12 +25,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
-          },
-        },
       },
       // JavaScript files
       {
