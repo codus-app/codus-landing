@@ -50,4 +50,17 @@ export default {
   loginExpired() {
     return Date.now() / 1000 > jwtDecode(localStorage.getItem('access_token')).exp;
   },
+
+  // Send the given user an email inviting them to change their password
+  requestPasswordReset(email) {
+    return new Promise((resolve, reject) => {
+      webAuth.changePassword({
+        connection: 'Username-Password-Authentication',
+        email,
+      }, (err, resp) => {
+        if (err) reject(err);
+        else resolve(resp);
+      });
+    });
+  },
 };
