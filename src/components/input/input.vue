@@ -25,6 +25,8 @@
       </div>
     </div>
     <div class="message">{{ message || '\xa0' }}</div>
+
+    <slot></slot>
   </div>
 </template>
 
