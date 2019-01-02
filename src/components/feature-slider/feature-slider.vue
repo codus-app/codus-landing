@@ -10,8 +10,8 @@
         v-for="(item, i) in items"
         v-bind:key="i"
       >
-        <h4>{{ item.title }}</h4>
-        <p>{{ item.desc }}</p>
+        <h4 v-html="item.title"></h4>
+        <p v-html="item.desc"></p>
       </div>
     </div>
   </div>
