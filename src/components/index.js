@@ -12,3 +12,4 @@ Vue.component('entry-form', require('./entry/entry.vue').default);
 Vue.component('text-input', require('./input/input.vue').default);
 Vue.component('spinner', require('./spinner/spinner.vue').default);
 Vue.component('loading-button', require('./loading-button/loading-button.vue').default);
+Vue.component('feature-slider', require('./feature-slider/feature-slider.vue').default);
