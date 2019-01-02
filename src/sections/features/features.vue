@@ -3,7 +3,10 @@
     <div class="container">
       <h1>Features</h1>
 
-      <feature-slider v-bind:items="items"></feature-slider>
+      <feature-slider
+        v-model="selectedIndex"
+        v-bind:items="items"
+      ></feature-slider>
 
     </div>
   </section>
