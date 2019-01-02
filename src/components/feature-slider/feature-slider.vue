@@ -6,9 +6,10 @@
     </div>
     <div class="list">
       <div
-        class="item"
         v-for="(item, i) in items"
+        v-bind:class="{ item: true, selected: i === value }"
         v-bind:key="i"
+        ref="items"
       >
         <h4 v-html="item.title"></h4>
         <p v-html="item.desc"></p>

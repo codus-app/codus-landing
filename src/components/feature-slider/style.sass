@@ -17,9 +17,13 @@
     .item
       font-family: 'Nunito Sans'
       font-size: 16px
+      transition: opacity .4
 
       &:not(:last-child)
         margin-bottom: 18px
+
+      &:not(.selected)
+        opacity: .4
 
       h4
         color: $light-text-primary
