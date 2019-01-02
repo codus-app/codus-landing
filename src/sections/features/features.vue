@@ -2,6 +2,9 @@
   <section id="features">
     <div class="container">
       <h1>Features</h1>
+
+      <feature-slider v-bind:items="items"></feature-slider>
+
     </div>
   </section>
 </template>
