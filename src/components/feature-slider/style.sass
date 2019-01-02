@@ -13,6 +13,19 @@
       width: 1px
       background-color: #4f4f52
 
+    .thumb
+      position: absolute
+      left: -1px
+      width: 3px
+      background: $white
+
+      // These will be manipulated in JS by transforms
+      top: 0
+      height: 10px
+
+      transform-origin: top center
+      transition: transform .25s
+
   .list
     .item
       font-family: 'Nunito Sans'

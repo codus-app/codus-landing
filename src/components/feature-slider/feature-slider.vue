@@ -1,8 +1,8 @@
 <template>
   <div class="feat-slider">
     <div class="slider">
-      <div class="track"></div>
-      <div class="thumb"></div>
+      <div class="track" ref="track"></div>
+      <div class="thumb" v-bind:style="thumbStyle"></div>
     </div>
     <div class="list">
       <div
