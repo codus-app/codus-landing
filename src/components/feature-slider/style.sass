@@ -1,0 +1,32 @@
+@import 'src/styles/variables'
+
+.feat-slider
+  position: relative
+  display: flex
+
+  .slider
+    position: relative
+    margin-right: 20px
+
+    .track
+      height: 100%
+      width: 1px
+      background-color: #4f4f52
+
+  .list
+    .item
+      font-family: 'Nunito Sans'
+      font-size: 16px
+
+      &:not(:last-child)
+        margin-bottom: 18px
+
+      h4
+        color: $light-text-primary
+        font-weight: 700
+        margin: 0 0 4px
+
+      p
+        color: transparentize($white, .3)
+        font-weight: 400
+        margin: 0
