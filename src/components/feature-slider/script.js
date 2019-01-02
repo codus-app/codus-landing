@@ -5,6 +5,6 @@ export default {
   },
 
   methods: {
-    switch(index) { this.$emit('input', index); },
+    change(index) { this.$emit('input', index); },
   },
 };

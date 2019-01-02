@@ -10,6 +10,7 @@
         v-bind:class="{ item: true, selected: i === value }"
         v-bind:key="i"
         ref="items"
+        v-on:mouseenter="change(i)"
       >
         <h4 v-html="item.title"></h4>
         <p v-html="item.desc"></p>
