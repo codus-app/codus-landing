@@ -2,7 +2,7 @@
   <section id="features">
     <div class="container">
       <h2 class="pre-header">Key Features</h2>
-      <h1>Features</h1>
+      <h1>{{ items[selectedIndex].title }}</h1>
 
       <feature-slider
         v-model="selectedIndex"
