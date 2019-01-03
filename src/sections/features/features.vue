@@ -1,6 +1,7 @@
 <template>
   <section id="features">
     <div class="container">
+      <h2 class="pre-header">Key Features</h2>
       <h1>Features</h1>
 
       <feature-slider
