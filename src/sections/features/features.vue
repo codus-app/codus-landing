@@ -9,6 +9,9 @@
         v-bind:items="items"
       ></feature-slider>
 
+      <div class="illustrations">
+        <div class="background"></div>
+      </div>
     </div>
   </section>
 </template>
