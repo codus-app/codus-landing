@@ -11,6 +11,9 @@
 
       <div class="illustrations">
         <div class="background"></div>
+        <laptop3d
+          :rotateZ='rotateZ'
+        ></laptop3d>
       </div>
     </div>
 
