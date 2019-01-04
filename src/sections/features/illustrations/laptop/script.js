@@ -13,7 +13,7 @@ export default {
     translateY: { type: String, default: '0' },
     translateZ: { type: String, default: '0' },
 
-    lidAngle: { type: String, default: '100deg' },
+    lidAngle: { type: Number, default: 100 },
   },
 
   computed: {
