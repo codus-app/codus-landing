@@ -18,19 +18,32 @@ section#features
     height: 120px
 
   .feat-slider
+    position: relative
+    z-index: 5
     margin-top: 35px
     width: 325px
 
   .illustrations
     position: absolute
+
+    z-index: 4
+    right: 0
     top: 50%
     transform: translateY(-50%)
-    border-radius: 50%
-    right: 0
+
     $size: calc(65% - 120px)
     width: $size
     padding-bottom: $size
-    background: transparentize($white, .975)
+
+    clip-path: url('#illustration-mask')
 
     @media (max-width: 800px)
       display: none
+
+
+    .background
+      position: absolute
+      border-radius: 50%
+      width: 100%
+      height: 100%
+      background: transparentize($white, .975)
