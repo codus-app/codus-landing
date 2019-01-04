@@ -1,4 +1,4 @@
-const sassLengthVariable = 30; // vw
+const sassLengthVariable = 300; const sassUnit = 'px';
 const sassWidthVariable = (sassLengthVariable / 3) * 2;
 const sassHeightVariable = (sassLengthVariable / 50); // eslint-disable-line no-unused-vars
 
@@ -33,7 +33,7 @@ export default {
 
     lidStyle() {
       return {
-        transform: `translateY(-${sassWidthVariable * 2}vw) rotateX(${-180 + this.lidAngle}deg)`,
+        transform: `translateY(-${sassWidthVariable * 2}${sassUnit}) rotateX(${-180 + this.lidAngle}deg)`,
         transition: `transform ${this.transitionTime}s`,
       };
     },
