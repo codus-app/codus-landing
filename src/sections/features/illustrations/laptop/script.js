@@ -1,5 +1,5 @@
 const sassLengthVariable = 300; const sassUnit = 'px';
-const sassWidthVariable = (sassLengthVariable / 3) * 2;
+const sassWidthVariable = sassLengthVariable * (5 / 7);
 const sassHeightVariable = (sassLengthVariable / 50); // eslint-disable-line no-unused-vars
 
 // Add a default suffix to a value that might or might not already have a suffix
@@ -23,7 +23,7 @@ export default {
     translateY: { type: null, default: 0 },
     translateZ: { type: null, default: 0 },
 
-    lidAngle: { type: Number, default: 100 },
+    lidAngle: { type: Number, default: 90 },
   },
 
   computed: {

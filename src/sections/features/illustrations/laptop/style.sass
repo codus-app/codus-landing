@@ -1,31 +1,29 @@
 @import 'src/styles/variables'
 
 $length: 300px
-$width: $length / 3 * 2
+$width: $length * (5 / 7)
 $height: $length / 50
 
-$base-color: #2e2e2e
+$base-color: #bbb
 
-$silver-1: lighten($base-color, 5%)
-$silver-2: lighten($base-color, 2.5%)
+$silver-1: lighten($base-color, 15%)
+$silver-2: lighten($base-color, 7.5%)
 $silver-3: $base-color
-$silver-4: darken($base-color, 2.5%)
-$silver-5: darken($base-color, 5%)
+$silver-4: darken($base-color, 7.5%)
+$silver-5: darken($base-color, 15%)
 
 .laptop3d
   position: absolute
-  transform-origin: top center 0
+  transform-origin: center center 0
   // The translations let the laptops be positioned by a point that is close to the visual center of
   // the laptop when it is open.
-  transform: translateX(-50%) translateY($width / 3) rotateX(80deg)
+  transform: translateX(-40%) translateY(-15%) rotateX(60deg) rotateY(0deg) rotateZ(-45deg)
   transform-style: preserve-3d
   pointer-events: none
-  cursor: pointer
 
   .wrapper
     transform-origin: 50% 50% 0
     transform-style: preserve-3d
-    pointer-events: all
 
     transition: transform .25s
     will-change: transform
