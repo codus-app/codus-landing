@@ -11,9 +11,7 @@
 
       <div class="illustrations">
         <div class="background"></div>
-        <div v-bind:style="{ opacity: laptopOpacity, transition: `opacity ${laptopTransition[0]}s ${laptopTransition[1] || 'ease'}` }">
-          <laptop3d v-bind="laptopProps"></laptop3d>
-        </div>
+        <laptop></laptop>
       </div>
     </div>
 
