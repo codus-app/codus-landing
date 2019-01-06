@@ -23,7 +23,7 @@ export default {
   },
 
   methods: {
-    async out(duration = 0.5) {
+    async out(duration = 0.35) {
       this.$emit('animationstart');
       this.laptopTransition = [duration, 'ease-in'];
       this.laptopOpacity = 0;
