@@ -7,6 +7,7 @@ export default {
 
     laptopPose: {},
     laptopTransition: [1],
+    laptopOpacity: 1,
   }),
 
   computed: {
