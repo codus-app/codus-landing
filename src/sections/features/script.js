@@ -6,10 +6,14 @@ export default {
     selectedIndex: 0,
 
     laptopPose: {},
+    laptopTransition: [1],
   }),
 
   computed: {
     laptopProps() {
+      const { laptopTransition } = this;
+      const [transitionTime, transitionEasing = 'ease'] = laptopTransition;
+      return { ...this.laptopPose, transitionTime, transitionEasing };
       return { ...this.laptopPose };
   },
   },
