@@ -11,7 +11,12 @@
 
       <div class="illustrations">
         <div class="background"></div>
-        <laptop></laptop>
+        <laptop
+          v-for="i in 4"
+          v-bind:key="i"
+          ref="laptops"
+          v-bind:initialVisibleState="i === 1"
+        >Laptop #{{i}}</laptop>
       </div>
     </div>
 
