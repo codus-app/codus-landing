@@ -11,6 +11,9 @@ export default {
     laptopOpacity: 1,
   }),
 
+  props: { initialVisibleState: Boolean },
+  created() { if (!this.initialVisibleState) this.out(); },
+
   computed: {
     laptopProps() {
       const { laptopTransition } = this;
