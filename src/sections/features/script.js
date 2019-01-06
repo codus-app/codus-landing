@@ -4,10 +4,15 @@ export default {
   data: () => ({
     items,
     selectedIndex: 0,
-    rotateZ2: 0,
+
+    laptopPose: {},
   }),
 
-  computed: { rotateZ() { return `${this.rotateZ2 * 10}deg`; }, },
+  computed: {
+    laptopProps() {
+      return { ...this.laptopPose };
+  },
+  },
 
   components: {
     laptop3d: require('./illustrations/laptop/laptop.vue').default,

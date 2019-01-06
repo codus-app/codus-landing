@@ -11,9 +11,7 @@
 
       <div class="illustrations">
         <div class="background"></div>
-        <laptop3d
-          :rotateZ='rotateZ'
-        ></laptop3d>
+        <laptop3d v-bind="laptopProps"></laptop3d>
       </div>
     </div>
 
