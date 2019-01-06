@@ -27,6 +27,7 @@ export default {
         lidAngle: 20,
         translateZ: -350,
       };
+      return new Promise(resolve => setTimeout(resolve, duration * 1000));
     },
 
     async in(duration = 1) {
@@ -38,11 +39,13 @@ export default {
       // Transition up
       this.laptopTransition = [duration];
       this.laptopPose = {};
+      return new Promise(resolve => setTimeout(resolve, duration * 1000));
     },
 
     outQuick(duration = 0.25) {
       this.laptopTransition = [duration];
       this.laptopOpacity = 0;
+      return new Promise(resolve => setTimeout(resolve, duration * 1000));
     },
   },
 
