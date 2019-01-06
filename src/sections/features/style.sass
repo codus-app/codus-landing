@@ -27,6 +27,7 @@ section#features
 
   .illustrations
     position: absolute
+    overflow: hidden
 
     z-index: 4
     right: 0
@@ -37,9 +38,10 @@ section#features
     perspective-origin: center -25vh
 
     $size: calc(65% - 120px)
-    width: $size
+    padding-right: $size
     padding-bottom: $size
 
+    -webkit-clip-path: circle(50%) // Safari won't behave 🙄
     clip-path: url('#illustration-mask')
 
     @media (max-width: 800px)

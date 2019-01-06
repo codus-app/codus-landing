@@ -42,7 +42,9 @@ export default {
       this.laptopTransition = [0];
       this.laptopOpacity = 1;
       this.laptopPose = { rotateZ: -270, lidAngle: 0, translateZ: -500 };
-      await this.$nextTick(); // Wait for CSS to be applied
+      // Wait for CSS to be applied
+      await this.$nextTick();
+      await new Promise(resolve => setTimeout(resolve, 20)); // Safari & firefox need extra time
       // Transition up
       this.laptopTransition = [duration];
       this.laptopPose = {};
