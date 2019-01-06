@@ -20,7 +20,8 @@ export default {
   },
 
   methods: {
-    out(duration = 0.5) {
+    async out(duration = 0.5) {
+      this.$emit('animationstart');
       this.laptopTransition = [duration, 'ease-in'];
       this.laptopOpacity = 0;
       this.laptopPose = {
@@ -28,10 +29,12 @@ export default {
         lidAngle: 20,
         translateZ: -350,
       };
-      return new Promise(resolve => setTimeout(resolve, duration * 1000));
+      await new Promise(resolve => setTimeout(resolve, duration * 1000));
+      this.$emit('animationend');
     },
 
     async in(duration = 1) {
+      this.$emit('animationstart');
       // Set initial position
       this.laptopTransition = [0];
       this.laptopOpacity = 1;
@@ -40,13 +43,16 @@ export default {
       // Transition up
       this.laptopTransition = [duration];
       this.laptopPose = {};
-      return new Promise(resolve => setTimeout(resolve, duration * 1000));
+      await new Promise(resolve => setTimeout(resolve, duration * 1000));
+      this.$emit('animationstart');
     },
 
-    outQuick(duration = 0.25) {
+    async outQuick(duration = 0.25) {
+      this.$emit('animationstart');
       this.laptopTransition = [duration];
       this.laptopOpacity = 0;
-      return new Promise(resolve => setTimeout(resolve, duration * 1000));
+      await new Promise(resolve => setTimeout(resolve, duration * 1000));
+      this.$emit('animationend');
     },
   },
 
