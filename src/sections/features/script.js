@@ -39,6 +39,11 @@ export default {
       this.laptopTransition = [duration];
       this.laptopPose = {};
     },
+
+    outQuick(duration = 0.25) {
+      this.laptopTransition = [duration];
+      this.laptopOpacity = 0;
+    },
   },
 
   components: {
