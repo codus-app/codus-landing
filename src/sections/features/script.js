@@ -19,8 +19,8 @@ export default {
   },
 
   methods: {
-    down() {
-      this.laptopTransition = [0.5, 'ease-in'];
+    out(duration = 0.5) {
+      this.laptopTransition = [duration, 'ease-in'];
       this.laptopOpacity = 0;
       this.laptopPose = {
         rotateZ: 135,
@@ -29,12 +29,14 @@ export default {
       };
     },
 
-    async up() {
+    async in(duration = 1) {
+      // Set initial position
       this.laptopTransition = [0];
       this.laptopOpacity = 1;
       this.laptopPose = { rotateZ: -270, lidAngle: 0, translateZ: -500 };
-      await this.$nextTick();
-      this.laptopTransition = [1];
+      await this.$nextTick(); // Wait for CSS to be applied
+      // Transition up
+      this.laptopTransition = [duration];
       this.laptopPose = {};
     },
   },
