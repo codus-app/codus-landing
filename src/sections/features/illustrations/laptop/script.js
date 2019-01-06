@@ -15,6 +15,7 @@ function secs(val) { return suffix(val, 's'); } // Give values a default unit of
 export default {
   props: {
     transitionTime: { type: Number, default: 0.5 },
+    transitionEasing: { type: String, default: 'ease' },
 
     rotateX: { type: null, default: 0 },
     rotateY: { type: null, default: 0 },
@@ -37,14 +38,14 @@ export default {
           `translateY(${px(this.translateY)})`,
           `translateZ(${px(this.translateZ)})`,
         ].join(' '),
-        transition: `transform ${secs(this.transitionTime)}`,
+        transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
     },
 
     lidStyle() {
       return {
         transform: `translateY(${suffix(sassWidthVariable * -2, sassUnit)}) rotateX(${deg(-180 + this.lidAngle)})`,
-        transition: `transform ${secs(this.transitionTime)}`,
+        transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
     },
 
