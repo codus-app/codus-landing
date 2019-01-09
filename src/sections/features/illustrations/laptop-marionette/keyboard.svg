@@ -13,7 +13,7 @@
   <path d="M844 50c0-3-2-5-5-5h-47c-3 0-5 2-5 5v13c0 3 2 5 5 5h47c3 0 5-2 5-5V50z" style="fill-opacity:.1" id="f11"/>
   <path d="M911 50c0-3-2-5-5-5h-47c-3 0-5 2-5 5v13c0 3 2 5 5 5h47c3 0 5-2 5-5V50z" style="fill-opacity:.1" id="f12"/>
   <path d="M978 50c0-3-2-5-5-5h-47c-2 0-5 2-5 5v13c0 3 3 5 5 5h47c3 0 5-2 5-5V50z" style="fill-opacity:.1" id="power"/>
-  <path d="M79 81c0-2-3-4-5-4H26c-2 0-4 2-4 4v46c0 3 2 5 4 5h48c2 0 5-2 5-5V81z" style="fill-opacity:.1" id="tilde"/>
+  <path d="M79 81c0-2-3-4-5-4H26c-2 0-4 2-4 4v46c0 3 2 5 4 5h48c2 0 5-2 5-5V81z" style="fill-opacity:.1" id="`"/>
   <path d="M113 145c0-2-2-5-4-5H27c-3 0-5 3-5 5v46c0 2 2 5 5 5h82c2 0 4-3 4-5v-46z" style="fill-opacity:.1" id="tab"/>
   <path d="M146 81c0-2-2-4-5-4H94c-3 0-5 2-5 4v46c0 3 2 5 5 5h47c3 0 5-2 5-5V81z" style="fill-opacity:.1" id="1"/>
   <path d="M181 145c0-2-2-5-5-5h-47c-3 0-5 3-5 5v46c0 2 2 5 5 5h47c3 0 5-3 5-5v-46z" style="fill-opacity:.1" id="q"/>
