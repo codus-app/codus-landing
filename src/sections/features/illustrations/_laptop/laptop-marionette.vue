@@ -17,5 +17,5 @@
   </div>
 </template>
 
-<script src="./script.js"></script>
+<script src="./marionette.js"></script>
 <style scoped lang="sass" src="./style.sass"></style>

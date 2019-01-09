@@ -62,6 +62,6 @@ export default {
   },
 
   components: {
-    'laptop-marionette': require('./laptop-marionette/laptop-marionette.vue').default,
+    'laptop-marionette': require('./laptop-marionette.vue').default,
   },
 };

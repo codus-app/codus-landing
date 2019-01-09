@@ -14,6 +14,6 @@ export default {
   },
 
   components: {
-    laptop: require('./illustrations/laptop.js').default,
+    laptop: require('./illustrations/_laptop/laptop.js').default,
   },
 };
