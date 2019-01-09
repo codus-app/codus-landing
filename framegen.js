@@ -85,14 +85,16 @@ const text = 'console.log({ book: "Alice was beginning to get very tired..." })'
 
 process.stdout.write('Generating frames...')
 const frames = [];
+const frameDelays = [];
 text.forEach((char, i) => {
   const [modifiers, key] = getKeysForChar(char);
   frames.push(frame([...modifiers, key]));
+  frameDelays.push(Math.floor(Math.random() * 7 + 5) * 10); // 50ms to 120ms
   // Any modifiers that are held onto the next frame can be kept for the blank frame
   const nextModifiers = i < text.length - 1 ? getKeysForChar(text[i+1])[0] : [];
   const commonModifiers = modifiers.filter(m => nextModifiers.includes(m));
-
   frames.push(frame(commonModifiers)); // Blank frame (might hold like shift or something)
+  frameDelays.push(Math.floor(Math.random() * 5 + 2) * 10); // 20ms to 70ms
 });
 
 // 2. Export frames to 200x86 PNGs
@@ -121,10 +123,7 @@ Promise.all(frames)
   })
   .then(({ images, size }) => {
     const [width, height] = size;
-    // Random delays from 50ms to 120ms
-    const delays = new Array(images.length).fill(null)
-      .map(() => Math.floor(Math.random() * 7 + 5) * 10);
-    return UPNG.encode(images, width, height, 0, delays);
+    return UPNG.encode(images, width, height, 0, frameDelays);
   })
   .then(data => promisify(fs.writeFile)('src/sections/features/illustrations/laptop-marionette/keyboard-anim.png', Buffer.from(data)))
 
