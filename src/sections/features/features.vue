@@ -11,13 +11,10 @@
 
       <div class="illustrations">
         <div class="background"></div>
-        <laptop
-          v-for="i in 4"
-          v-bind:key="i"
-          v-bind:typing="i === 2"
-          ref="laptops"
-          v-bind:initialVisibleState="i === 1"
-        >Laptop #{{i}}</laptop>
+        <problems-illustration v-bind:initialVisibleState="true" ref="problems-illustration"></problems-illustration>
+        <autosave-illustration v-bind:initialVisibleState="false" ref="autosave-illustration"></autosave-illustration>
+        <verification-illustration v-bind:initialVisibleState="false" ref="verification-illustration"></verification-illustration>
+        <debugging-illustration v-bind:initialVisibleState="false" ref="debugging-illustration"></debugging-illustration>
       </div>
     </div>
 
