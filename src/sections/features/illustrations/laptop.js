@@ -11,14 +11,14 @@ export default {
     laptopOpacity: 1,
   }),
 
-  props: { initialVisibleState: Boolean },
+  props: { initialVisibleState: Boolean, typing: Boolean },
   created() { if (!this.initialVisibleState) this.out(); },
 
   computed: {
     laptopProps() {
-      const { laptopTransition } = this;
+      const { laptopTransition, typing } = this;
       const [transitionTime, transitionEasing = 'ease'] = laptopTransition;
-      return { ...this.laptopPose, transitionTime, transitionEasing };
+      return { ...this.laptopPose, transitionTime, transitionEasing, typing }; // eslint-disable-line object-curly-newline, max-len
     },
   },
 

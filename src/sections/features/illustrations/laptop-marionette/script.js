@@ -25,6 +25,8 @@ export default {
     translateZ: { type: null, default: 0 },
 
     lidAngle: { type: Number, default: 90 },
+
+    typing: { type: Boolean, default: false },
   },
 
   computed: {

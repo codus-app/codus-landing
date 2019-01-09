@@ -14,6 +14,7 @@
         <laptop
           v-for="i in 4"
           v-bind:key="i"
+          v-bind:typing="i === 2"
           ref="laptops"
           v-bind:initialVisibleState="i === 1"
         >Laptop #{{i}}</laptop>

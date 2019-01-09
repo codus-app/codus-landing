@@ -32,10 +32,13 @@ $silver-5: darken($base-color, 15%)
     position: relative
     width: $length
     height: $width
-    background: url('./keyboard.svg'), linear-gradient(to bottom right, $silver-1, $silver-5)
+    background-image: url('./keyboard.svg'), linear-gradient(to bottom right, $silver-1, $silver-5)
     background-size: $length auto
     background-repeat: no-repeat
     transform-style: preserve-3d
+
+    &.typing
+      background-image: url('./keyboard-anim.png'), linear-gradient(to bottom right, $silver-1, $silver-5)
 
     // Left
     &::before
