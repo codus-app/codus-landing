@@ -1,3 +1,7 @@
+// Node.js script to generate the APNG 'typing' animation displayed in some illustrations
+// Manipulates a SVG for each frame, renders those frames to PNG, and combines the PNG frames into
+// a single APNG
+
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const rimraf = require('rimraf');
