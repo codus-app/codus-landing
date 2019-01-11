@@ -1,7 +1,7 @@
 <template>
   <div class="illustration">
     <laptop ref="laptop" v-bind="{ initialVisibleState, typing: true }">
-      Auto-saves as you type
+      <canvas ref="canvas"></canvas>
     </laptop>
   </div>
 </template>
