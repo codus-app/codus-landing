@@ -49,7 +49,7 @@ const getDom = () => new JSDOM(`
   <html>
     <body>
       <div id="svg">
-        ${fs.readFileSync('src/sections/features/illustrations/laptop-marionette/keyboard.svg', 'utf-8')}
+        ${fs.readFileSync('src/sections/features/illustrations/_laptop/keyboard.svg', 'utf-8')}
       </div>
     </body>
   </html>
@@ -87,7 +87,7 @@ const text = 'console.log({ book: "Alice was beginning to get very tired..." })'
 
 // 1. Generate SVG of each frame
 
-process.stdout.write('Generating frames...')
+process.stdout.write('Generating frames...');
 const frames = [];
 const frameDelays = [];
 text.forEach((char, i) => {
@@ -129,7 +129,7 @@ Promise.all(frames)
     const [width, height] = size;
     return UPNG.encode(images, width, height, 0, frameDelays);
   })
-  .then(data => promisify(fs.writeFile)('src/sections/features/illustrations/laptop-marionette/keyboard-anim.png', Buffer.from(data)))
+  .then(data => promisify(fs.writeFile)('src/sections/features/illustrations/_laptop/keyboard-anim.png', Buffer.from(data)))
 
 // Remove 'frames' folder
 
