@@ -28,6 +28,8 @@ class CodeBlock {
 
   draw(ctx) {
     ctx.fillStyle = this.color;
+    const progress = (this.canvas.height - this.y) / this.canvas.height;
+    ctx.globalAlpha = Math.max(Math.min((-5 * Math.abs(progress - 0.45)) + 2.75, 1), 0);
     ctx.fillRect(this.x, this.y, this.width, CodeBlock.height);
   }
 }
