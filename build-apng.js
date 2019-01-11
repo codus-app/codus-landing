@@ -58,7 +58,7 @@ const getDom = () => new JSDOM(`
 
 function getFrame(keysPressed) {
   const { document } = getDom().window;
-  keysPressed.forEach(id => document.getElementById(id).setAttribute('style', 'fill-opacity: .3'));
+  keysPressed.forEach(id => document.getElementById(id).setAttribute('style', 'fill-opacity: .2'));
   return document.getElementById('svg').innerHTML;
 }
 
