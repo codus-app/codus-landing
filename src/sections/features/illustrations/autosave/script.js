@@ -6,8 +6,6 @@ const colors = [
   '#4c566a',
   '#2e3440',
 ];
-const fps = 60;
-const delay = 1000 / fps;
 
 
 /* eslint-disable lines-between-class-members */
@@ -42,7 +40,7 @@ export default {
 
   data: () => ({
     ctx: undefined,
-    interval: undefined,
+    running: true,
   }),
 
   mounted() {
@@ -52,16 +50,15 @@ export default {
     this.$refs.canvas.width = this.$refs.canvas.offsetWidth * window.devicePixelRatio;
     this.$refs.canvas.height = this.$refs.canvas.offsetHeight * window.devicePixelRatio;
 
-    this.start();
+    this.draw();
   },
+  // Allow restarting animation by setting 'running' back to true after stopping
+  watch: { running(is) { if (is) this.draw(); } },
 
   methods: {
     out() { return this.$refs.laptop.out(); },
     in() { return this.$refs.laptop.in(); },
     outQuick() { return this.$refs.laptop.outQuick(); },
-
-    start() { this.interval = setInterval(() => requestAnimationFrame(() => this.draw()), delay); },
-    stop() { clearInterval(this.interval); },
 
     addRow() {
       const row = [];
@@ -85,6 +82,8 @@ export default {
       const gap = 5 * window.devicePixelRatio;
       if (!bottomRow || bottomRow[0].y < canvas.height - (CodeBlock.height + gap)) this.addRow();
       [].concat(...this.rows).forEach(b => b.draw(this.ctx));
+
+      if (this.running) requestAnimationFrame(() => this.draw());
     },
   },
 
