@@ -7,11 +7,12 @@ const colors = [
   '#2e3440',
 ];
 
+const dpr = window.devicePixelRatio;
 
 /* eslint-disable lines-between-class-members */
 class CodeBlock {
-  static get height() { return 6 * window.devicePixelRatio; }
-  static get speed() { return 100 * window.devicePixelRatio; }
+  static get height() { return 6 * dpr; }
+  static get speed() { return 100 * dpr; }
 
   constructor(x, width, canvas) {
     this.canvas = canvas;
@@ -41,14 +42,15 @@ export default {
   data: () => ({
     ctx: undefined,
     running: true,
+    dpr,
   }),
 
   mounted() {
     this.ctx = this.$refs.canvas.getContext('2d');
     this.rows = [];
     this.addRow();
-    this.$refs.canvas.width = this.$refs.canvas.offsetWidth * window.devicePixelRatio;
-    this.$refs.canvas.height = this.$refs.canvas.offsetHeight * window.devicePixelRatio;
+    this.$refs.canvas.width = this.$refs.canvas.offsetWidth * this.dpr;
+    this.$refs.canvas.height = this.$refs.canvas.offsetHeight * this.dpr;
 
     this.draw();
   },
@@ -62,12 +64,11 @@ export default {
 
     addRow() {
       const row = [];
-      const dpr = window.devicePixelRatio;
-      const horizGap = 4 * dpr;
-      const indent = (15 + Math.round(Math.random()) * 20) * dpr;
+      const horizGap = 4 * this.dpr;
+      const indent = (15 + Math.round(Math.random()) * 20) * this.dpr;
       for (let i = 0; i < Math.floor(Math.random() * 5 + 1); i += 1) {
         const newX = indent + row.map(block => block.width + horizGap).reduce((a, b) => a + b, 0);
-        const width = Math.floor(Math.random() * 50 + 5) * dpr;
+        const width = Math.floor(Math.random() * 50 + 5) * this.dpr;
         row.push(new CodeBlock(newX, width, this.$refs.canvas));
       }
       this.rows.push(row);
@@ -79,7 +80,7 @@ export default {
       const bottomRow = this.rows.slice(-1)[0];
 
       this.rows = this.rows.filter(r => !r[0].offScreen);
-      const gap = 5 * window.devicePixelRatio;
+      const gap = 5 * this.dpr;
       if (!bottomRow || bottomRow[0].y < canvas.height - (CodeBlock.height + gap)) this.addRow();
       [].concat(...this.rows).forEach(b => b.draw(this.ctx));
 
