@@ -1,5 +1,5 @@
 <template>
-  <div class="laptop3d" ref="laptop" v-bind:style="laptopStyle">
+  <div class="laptop3d">
     <div class="wrapper" ref="wrapper" v-bind:style="wrapperStyle">
 
       <div v-bind:class="{ base: true, typing }" ref="base"><div class="front"></div></div>

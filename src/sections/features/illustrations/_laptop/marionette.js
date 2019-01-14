@@ -29,34 +29,7 @@ export default {
     typing: { type: Boolean, default: false },
   },
 
-  data: () => ({
-    mouseX: 0,
-    mouseY: 0,
-  }),
-
-  created() {
-    this.onMouseMove = (e) => {
-      this.mouseX = e.clientX; this.mouseY = e.clientY;
-    };
-    window.addEventListener('mousemove', this.onMouseMove);
-  },
-  destroyed() { window.removeEventListener('mousemove', this.onMouseMove); },
-
-
   computed: {
-    laptopStyle() {
-      const mousePosFromCenter = [
-        this.mouseX - (window.innerWidth / 2), this.mouseY - (window.innerHeight / 2),
-      ];
-      return {
-        transform: [
-          `rotateX(${-mousePosFromCenter[1] / window.innerHeight * 10}deg)`,
-          `rotateY(${mousePosFromCenter[0] / window.innerWidth * 10}deg)`,
-          'translateX(-40%) translateY(-15%) rotateX(60deg) rotateY(0deg) rotateZ(-45deg)',
-        ].join(' '),
-      };
-    },
-
     wrapperStyle() {
       return {
         transform: [
