@@ -1,0 +1,30 @@
+@import 'src/styles/variables'
+
+.illustration /deep/ .laptop3d .lid .front,
+.illustration /deep/ .laptop3d .lid .front .screen
+  overflow: visible
+  transform-style: preserve-3d
+
+.problems
+  transform-style: preserve-3d
+  width: 100%
+  height: 100%
+  perspective: 600px
+  perspective-origin: center center 500px
+
+.problem
+  width: 30px
+  height: 20px
+  border-radius: 4px
+  position: absolute
+  transform: translate(-50%, -50%) translateZ(10px)
+  animation: float 1s infinite alternate linear
+
+  &:nth-child(3n + 1)
+    background: $green-solid
+
+  &:nth-child(3n + 2)
+    background: transparentize($green-solid, .2)
+
+  &:nth-child(3n + 3)
+    background: transparentize($green-solid, .4)
