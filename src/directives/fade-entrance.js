@@ -7,7 +7,7 @@ function multCss(val, mul) {
   return val2.join('');
 }
 
-const AnimatedEntrance = {
+const FadeEntrance = {
   inserted(el, binding) {
     const delay = (binding.value || {}).delay || '0s';
     const duration = (binding.value || {}).duration || '.65s';
@@ -25,4 +25,4 @@ const AnimatedEntrance = {
   },
 };
 
-Vue.directive('fade', AnimatedEntrance);
+Vue.directive('fade', FadeEntrance);

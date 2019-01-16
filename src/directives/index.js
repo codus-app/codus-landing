@@ -1,1 +1,2 @@
-import './animated-entrance';
+import './fade-entrance';
+import './header-text-entrance';
