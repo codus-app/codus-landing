@@ -17,7 +17,7 @@ import './style.sass';
 import './components';
 import sections from './sections';
 
-import './animated-entrance';
+import './directives';
 
 import auth from './auth';
 window.auth = auth;
