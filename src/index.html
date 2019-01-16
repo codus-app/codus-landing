@@ -19,7 +19,7 @@
 
   <body>
     <div id="app">
-      <top-bar v-bind:links="sections"></top-bar>
+      <top-bar v-bind:links="sections" v-fade="{ delay: '1s', duration: '.45s' }"></top-bar>
       <page-header></page-header>
       <features-section></features-section>
     </div>

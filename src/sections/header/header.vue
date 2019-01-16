@@ -7,14 +7,14 @@
           Write, Run,<br><span class="green">Solve.</span>
         </h1>
 
-        <p data-content="
+        <p v-fade.up="{ delay: '0.5s' }" data-content="
           Learn to solve practical problems with software. Master principles of programming whether
           you’re an amateur, a student, or a professional.
         "></p>
       </div>
 
       <div class="right">
-        <entry-form></entry-form>
+        <entry-form v-fade.up="{ delay: '0.75s', duration: '.85s' }"></entry-form>
       </div>
     </div>
 
