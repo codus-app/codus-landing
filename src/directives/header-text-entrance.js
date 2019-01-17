@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-const HeaderTextEntrance = {
+export default {
   inserted(el, binding) {
     if (el) {
       const delay = (binding.value || {}).delay || '0s';
@@ -26,5 +24,3 @@ const HeaderTextEntrance = {
     }
   },
 };
-
-Vue.directive('header-text-entrance', HeaderTextEntrance);

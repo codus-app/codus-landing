@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 // Multiply a CSS value
 function multCss(val, mul) {
   const val2 = [parseFloat(val), val.match(/[a-zA-Z]/g).join('')];
@@ -7,7 +5,7 @@ function multCss(val, mul) {
   return val2.join('');
 }
 
-const FadeEntrance = {
+export default {
   inserted(el, binding) {
     const delay = (binding.value || {}).delay || '0s';
     const duration = (binding.value || {}).duration || '.65s';
@@ -25,4 +23,3 @@ const FadeEntrance = {
   },
 };
 
-Vue.directive('fade', FadeEntrance);
