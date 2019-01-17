@@ -4,7 +4,6 @@ const HeaderTextEntrance = {
   inserted(el, binding) {
     if (el) {
       const delay = (binding.value || {}).delay || '0s';
-      const duration = (binding.value || {}).duration || '.65s';
 
       [...el.getElementsByClassName('anim')].forEach((span, i) => {
         Object.assign(span.style, {
