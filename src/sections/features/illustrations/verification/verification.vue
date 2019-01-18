@@ -1,7 +1,7 @@
 <template>
   <div class="illustration">
     <laptop ref="laptop" v-bind="{ initialVisibleState }">
-      Robust solution verification
+      <canvas ref="canvas"></canvas>
     </laptop>
   </div>
 </template>
