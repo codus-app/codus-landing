@@ -60,7 +60,6 @@ export default {
     ctx: undefined,
     running: true,
     rowCount: 0,
-    dpr,
   }),
 
   mounted() {
@@ -69,8 +68,8 @@ export default {
       new Array(numCols).fill(null).map((_, i) => new Problem(i, this.$refs.canvas)),
     ];
     this.rowCount = 1;
-    this.$refs.canvas.width = this.$refs.canvas.offsetWidth * this.dpr;
-    this.$refs.canvas.height = this.$refs.canvas.offsetHeight * this.dpr;
+    this.$refs.canvas.width = this.$refs.canvas.offsetWidth * dpr;
+    this.$refs.canvas.height = this.$refs.canvas.offsetHeight * dpr;
 
     this.draw();
   },
