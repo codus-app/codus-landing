@@ -24,16 +24,16 @@
       color: transparentize($red-solid, .1)
 
   &.success
-    background: mix($green-solid, $dark-2, 25%)
-    box-shadow: 0 0 0 3px mix($green-solid, $dark-2, 75%)
+    background: mix($green-solid, $dark-2, 30%)
+    box-shadow: 0 0 0 3px $green-solid
 
     .feather-check-circle
       transform: translate(-50%, -50%)
       opacity: 1
 
   &.failure
-    background: mix($red-solid, $dark-2, 25%)
-    box-shadow: 0 0 0 3px mix($red-solid, $dark-2, 75%)
+    background: saturate(mix($red-solid, $dark-2, 25%), 10%)
+    box-shadow: 0 0 0 3px mix($red-solid, $dark-2, 95%)
 
     .feather-x-circle
       transform: translate(-50%, -50%)
