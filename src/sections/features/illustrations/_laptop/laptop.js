@@ -19,7 +19,7 @@ export default {
     typing: Boolean,
     raised: { type: Boolean, default: false },
   },
-  created() { if (!this.initialVisibleState) this.outQuick(); },
+  created() { if (!this.initialVisibleState) this.out(); },
 
   computed: {
     laptopProps() {
@@ -57,14 +57,6 @@ export default {
       this.laptopPose = this.raised ? { translateZ: 55 } : {};
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationstart');
-    },
-
-    async outQuick(duration = 0.25) {
-      this.$emit('animationstart');
-      this.laptopTransition = [duration];
-      this.laptopOpacity = 0;
-      await new Promise(resolve => setTimeout(resolve, duration * 1000));
-      this.$emit('animationend');
     },
   },
 

@@ -16,7 +16,6 @@ export default {
   methods: {
     out() { return this.$refs.laptop.out(); },
     in() { this.reset(); return this.$refs.laptop.in(); },
-    outQuick() { return this.$refs.laptop.outQuick(); },
 
     reset() {
       clearTimeout(this.timeout);
