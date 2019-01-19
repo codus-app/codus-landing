@@ -1,7 +1,10 @@
 export default {
   template: `
     <div v-bind:style="{ opacity: laptopOpacity, transition: \`opacity \${laptopTransition[0]}s \${laptopTransition[1] || 'ease'}\` }">
-      <laptop-marionette v-bind="laptopProps"><slot></slot></laptop-marionette>
+      <laptop-marionette v-bind="laptopProps">
+        <slot></slot>
+        <slot name="base" slot="base"></slot>
+      </laptop-marionette>
     </div>
   `,
 

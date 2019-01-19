@@ -2,7 +2,10 @@
   <div class="laptop3d">
     <div class="wrapper" ref="wrapper" v-bind:style="wrapperStyle">
 
-      <div v-bind:class="{ base: true, typing }" ref="base"><div class="front"></div></div>
+      <div class="base" ref="base" v-bind:class="{ typing }">
+        <div class="front"></div>
+        <slot name="base"></slot>
+      </div>
 
       <div class="lid" ref="lid" v-bind:style="lidStyle">
         <div class="front">
