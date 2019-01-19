@@ -1,8 +1,10 @@
 <template>
   <div class="illustration">
-    <laptop ref="laptop" v-bind="{ initialVisibleState, typing: true, raised: true }">
+    <laptop class="laptop" ref="laptop" v-bind="{ initialVisibleState, typing: true, raised: true }">
       <canvas ref="canvas"></canvas>
     </laptop>
+
+    <server ref="server" v-bind:initialVisibleState="false"></server>
   </div>
 </template>
 

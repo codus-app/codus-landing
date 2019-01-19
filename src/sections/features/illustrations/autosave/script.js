@@ -58,8 +58,18 @@ export default {
   watch: { running(is) { if (is) this.draw(); } },
 
   methods: {
-    out() { return this.$refs.laptop.out(); },
-    in() { return this.$refs.laptop.in(); },
+    out() {
+      return Promise.all([
+        this.$refs.laptop.out(),
+        this.$refs.server.out(),
+      ]);
+    },
+    in() {
+      return Promise.all([
+        this.$refs.laptop.in(),
+        this.$refs.server.out(),
+      ]);
+    },
 
     addRow() {
       const row = [];
@@ -87,5 +97,8 @@ export default {
     },
   },
 
-  components: { laptop: require('../_laptop/laptop.js').default },
+  components: {
+    laptop: require('../_laptop/laptop.js').default,
+    server: require('../_server/server.vue').default,
+  },
 };
