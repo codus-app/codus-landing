@@ -23,5 +23,8 @@ export default {
     },
   },
 
-  components: { laptop: require('../_laptop/laptop.js').default },
+  components: {
+    'test-case': require('./test-case/test-case.vue').default,
+    laptop: require('../_laptop/laptop.js').default,
+  },
 };
