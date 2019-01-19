@@ -10,7 +10,7 @@ export default {
     return {
       style: {
         transform: this.getTransform(),
-        transitionDuration: '0.35s',
+        opacity: 1,
       },
     };
   },
@@ -23,15 +23,10 @@ export default {
     position(newPos, oldPos) {
       this.style.transform = this.getTransform();
 
-      // If we're switching from one side to the other, don't transition
+      // If we're switching from one side to the other, do it in SECRET
       if (Math.sign(newPos) && Math.sign(oldPos) && Math.sign(newPos) !== Math.sign(oldPos)) {
-        this.style.transitionDuration = '0s';
-
-        // Set transition duration back
-        this.$nextTick()
-          .then(() => setTimeout(() => {
-            this.style.transitionDuration = '0.35s';
-          }, 40));
+        this.style.opacity = 0;
+        setTimeout(() => { this.style.opacity = 1; }, 350);
       }
     },
   },
