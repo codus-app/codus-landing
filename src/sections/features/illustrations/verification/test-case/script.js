@@ -16,7 +16,7 @@ export default {
   },
 
   methods: {
-    getTransform() { return `translateX(${(containerWidth / 4) * this.position}px)`; },
+    getTransform() { return `translateX(${(containerWidth / 4) * -this.position}px)`; },
   },
 
   watch: {
