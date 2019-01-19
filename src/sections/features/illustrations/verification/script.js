@@ -13,7 +13,7 @@ export default {
 
   methods: {
     out() { return this.$refs.laptop.out(); },
-    in() { return this.$refs.laptop.in(); },
+    in() { this.reset(); return this.$refs.laptop.in(); },
     outQuick() { return this.$refs.laptop.outQuick(); },
 
     reset() {
