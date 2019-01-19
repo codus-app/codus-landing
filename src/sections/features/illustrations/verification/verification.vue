@@ -2,7 +2,7 @@
   <div class="illustration">
     <laptop ref="laptop" v-bind="{ initialVisibleState }">
 
-      <icon-file></icon-file>
+      <icon-rotate></icon-rotate>
 
       <div class="test-cases">
 

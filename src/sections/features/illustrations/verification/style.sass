@@ -1,13 +1,14 @@
 @import 'src/styles/variables'
 
-.feather.feather-file
+.feather.feather-rotate-cw
   position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  width: 25px
-  height: 25px
+  $size: 21px
+  top: calc(50% - (#{$size / 2}))
+  left: calc(50% - (#{$size / 2}))
+  width: $size
+  height: $size
   color: transparentize($white, .25)
+  animation: spin 1.5s infinite linear
 
 .test-case
   position: absolute
@@ -18,3 +19,11 @@
   top: 50% - ($height / 2)
   width: $width
   height: $height
+
+
+@keyframes spin
+  from
+    transform: rotate(0) translateZ(0)
+
+  to
+    transform: rotate(1turn) translateZ(0)
