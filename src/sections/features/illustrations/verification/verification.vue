@@ -1,6 +1,7 @@
 <template>
   <div class="illustration">
     <laptop ref="laptop" v-bind="{ initialVisibleState }">
+      <icon-file></icon-file>
     </laptop>
   </div>
 </template>
