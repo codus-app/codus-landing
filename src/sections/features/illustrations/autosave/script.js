@@ -59,16 +59,18 @@ export default {
 
   methods: {
     out() {
-      return Promise.all([
-        this.$refs.laptop.out(),
-        this.$refs.server.out(),
-      ]);
+      return new Promise((resolve) => {
+        // Server out, then laptop staggered
+        this.$refs.server.out();
+        setTimeout(() => { this.$refs.laptop.out().then(resolve); }, 50);
+      });
     },
     in() {
-      return Promise.all([
-        this.$refs.laptop.in(),
-        this.$refs.server.out(),
-      ]);
+      return new Promise((resolve) => {
+        // Laptop in, then server staggered
+        this.$refs.laptop.in();
+        setTimeout(() => { this.$refs.server.in().then(resolve); }, 50);
+      });
     },
 
     addRow() {
