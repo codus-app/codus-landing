@@ -11,6 +11,11 @@ export default {
     this.reset();
   },
 
+  computed: {
+    // The index (in the testCaseProps array) of the testCase that occupies the center position
+    centerIndex() { return this.testCaseProps.findIndex(({ position }) => position === 0); },
+  },
+
   methods: {
     out() { return this.$refs.laptop.out(); },
     in() { this.reset(); return this.$refs.laptop.in(); },
