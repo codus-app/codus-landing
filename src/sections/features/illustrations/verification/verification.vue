@@ -6,7 +6,11 @@
 
       <div class="test-cases">
 
-        <test-case></test-case>
+        <test-case
+          v-for="i in 7"
+          v-bind:key="i"
+          v-bind="testCaseProps[i - 1]"
+        ></test-case>
 
       </div>
     </laptop>
