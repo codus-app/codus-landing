@@ -1,3 +1,5 @@
+import { offsetFromLaptop } from '../_server/script';
+
 export default {
   template: `
     <div v-bind:style="{ opacity: laptopOpacity, transition: \`opacity \${laptopTransition[0]}s \${laptopTransition[1] || 'ease'}\` }">
@@ -54,7 +56,7 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 20)); // Safari & firefox need extra time
       // Transition up
       this.laptopTransition = [duration];
-      this.laptopPose = this.raised ? { translateZ: 55 } : {};
+      this.laptopPose = this.raised ? { translateZ: offsetFromLaptop } : {};
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationstart');
     },
