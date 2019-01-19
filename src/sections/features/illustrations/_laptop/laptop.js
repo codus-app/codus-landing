@@ -14,8 +14,12 @@ export default {
     laptopOpacity: 1,
   }),
 
-  props: { initialVisibleState: Boolean, typing: Boolean },
-  created() { if (!this.initialVisibleState) this.out(); },
+  props: {
+    initialVisibleState: Boolean,
+    typing: Boolean,
+    raised: { type: Boolean, default: false },
+  },
+  created() { if (!this.initialVisibleState) this.outQuick(); },
 
   computed: {
     laptopProps() {
@@ -50,7 +54,7 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 20)); // Safari & firefox need extra time
       // Transition up
       this.laptopTransition = [duration];
-      this.laptopPose = {};
+      this.laptopPose = this.raised ? { translateZ: 55 } : {};
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationstart');
     },

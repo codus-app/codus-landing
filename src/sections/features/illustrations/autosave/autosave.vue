@@ -1,6 +1,6 @@
 <template>
   <div class="illustration">
-    <laptop ref="laptop" v-bind="{ initialVisibleState, typing: true }">
+    <laptop ref="laptop" v-bind="{ initialVisibleState, typing: true, raised: true }">
       <canvas ref="canvas"></canvas>
     </laptop>
   </div>
