@@ -81,7 +81,7 @@ export default {
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
-      this.$emit('animationstart');
+      this.$emit('animationend');
     },
   },
 };

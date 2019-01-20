@@ -58,7 +58,7 @@ export default {
       this.laptopTransition = [duration];
       this.laptopPose = this.raised ? { translateZ: offsetFromLaptop } : {};
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
-      this.$emit('animationstart');
+      this.$emit('animationend');
     },
   },
 
