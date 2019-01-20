@@ -56,7 +56,8 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 20)); // Safari & firefox need extra time
       // Transition up
       this.laptopTransition = [duration];
-      this.laptopPose = this.raised ? { translateZ: offsetFromLaptop } : {};
+      // -20 because the server is set 20px down
+      this.laptopPose = this.raised ? { translateZ: offsetFromLaptop - 20 } : {};
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationend');
     },

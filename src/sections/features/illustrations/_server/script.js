@@ -78,7 +78,7 @@ export default {
         transitionEasing: 'ease',
         rotateZ: 0,
         scale: 1,
-        translateZ: 0,
+        translateZ: -20,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationend');
