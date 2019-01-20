@@ -62,7 +62,7 @@ export default {
       return new Promise((resolve) => {
         // Server out, then laptop staggered
         this.$refs.server.out();
-        setTimeout(() => { this.$refs.laptop.out().then(resolve); }, 50);
+        setTimeout(() => { this.$refs.laptop.out().then(resolve); }, 90);
       });
     },
     in() {
