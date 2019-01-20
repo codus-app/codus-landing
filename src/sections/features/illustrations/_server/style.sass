@@ -1,3 +1,5 @@
+@import 'src/styles/variables'
+
 $length: 300px
 $width: $length * (5 / 7)
 $height: 35px
@@ -32,22 +34,33 @@ $silver-5: darken($base-color, 4%)
       background-repeat: no-repeat
       transform-style: preserve-3d
 
+      .left,
+      .right
+        left: 0
+        top: 0
+        height: $height
+        clip-path: inset(0 0 -50px 0)
+
       .left
         position: absolute
         z-index: -1
-        left: 0
-        top: 0
-        width: $width
-        height: $height
         background: linear-gradient(to left, $silver-2, $silver-4)
+        width: $width
         transform-origin: top left
         transform: rotateZ(90deg) rotateX(-90deg) rotateY(0)
 
       .right
-        top: 0
-        left: 0
-        width: $length
-        height: $height
         background: linear-gradient(to bottom right, $silver-3, $silver-5)
+        width: $length
         transform-origin: top
         transform: translateY($width) rotateX(-90deg)
+
+    &.shadow
+      .box
+        .left
+          transition: box-shadow .75s
+          box-shadow: 10px 8px 20px -2.5px transparentize($green-solid, .15)
+
+        .right
+          transition: box-shadow .75s
+          box-shadow: -10px 8px 20px -2.5px transparentize($green-solid, .15)

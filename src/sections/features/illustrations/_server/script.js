@@ -17,6 +17,7 @@ export default {
     transitionTime: 0.5,
     transitionEasing: 'ease',
     opacity: 1,
+    showShadow: false,
 
     scale: 1,
     rotateZ: 0,
@@ -69,6 +70,7 @@ export default {
         scale: 0.5,
         translateZ: -500 - offsetFromLaptop,
       });
+      this.showShadow = false;
       // Wait for CSS to be applied
       await this.$nextTick();
       await new Promise(resolve => setTimeout(resolve, 20)); // Safari & firefox need extra time
@@ -81,6 +83,7 @@ export default {
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
+      this.showShadow = true;
       this.$emit('animationend');
     },
   },
