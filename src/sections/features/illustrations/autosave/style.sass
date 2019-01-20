@@ -1,3 +1,5 @@
+@import 'src/styles/variables'
+
 canvas
   width: 100%
   height: 100%
@@ -11,3 +13,57 @@ canvas
 
 .server
   z-index: 4
+
+
+
+.rings
+  // position: relative
+  width: 100%
+  height: 100%
+
+  &.visible
+    .ring
+      animation-name: ring-down
+
+
+.ring
+  // position: relative
+  animation-duration: 1.5s
+  animation-timing-function: linear
+  animation-iteration-count: infinite
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  transform: translateZ(-1px)
+
+  $size: .9
+
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    width: $size * 100%
+    height: $size * 100%
+    top: (1 - $size) / 2 * 100%
+    left: (1 - $size) / 2 * 100%
+    border: 7.5px solid $green-solid
+
+  @for $index from 1 through 3
+    &:nth-child(#{$index})
+      animation-delay: 2.25s + (1.5s / 3) * ($index - 1)
+
+      &::after
+        transform: translateY(-100% * (1 / $size) * ($index - 1))
+
+@keyframes ring-down
+  from
+    transform: translateZ(-1px)
+    opacity: .75
+
+  30%
+    opacity: .75
+
+  to
+    transform: translateZ(-60px)
+    opacity: 0

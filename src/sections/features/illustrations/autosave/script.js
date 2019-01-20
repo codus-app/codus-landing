@@ -43,6 +43,7 @@ export default {
     ctx: undefined,
     running: true,
     dpr,
+    raised: false,
   }),
 
   mounted() {
@@ -59,6 +60,7 @@ export default {
 
   methods: {
     out() {
+      this.raised = false;
       return new Promise((resolve) => {
         // Server out, then laptop staggered
         this.$refs.server.out();
@@ -66,6 +68,7 @@ export default {
       });
     },
     in() {
+      this.raised = true;
       return new Promise((resolve) => {
         // Laptop in, then server staggered
         this.$refs.laptop.in();
