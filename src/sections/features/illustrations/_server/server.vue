@@ -1,6 +1,6 @@
 <template>
   <div class="server" v-bind:style="style">
-    <div class="server3d" v-bind:class="{ shadow: showShadow }">
+    <div class="server3d">
       <div class="wrapper" ref="wrapper" v-bind:style="wrapperStyle">
         <div class="box">
           <div class="left"></div>

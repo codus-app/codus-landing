@@ -65,7 +65,8 @@ $silver-5: darken($base-color, 4%)
           height: $dots-height
           background-image: radial-gradient($green-solid 35%, transparent 35%)
           background-size: $dots-height / 2 $dots-height / 2
-          opacity: .15
+
+          animation: dots-glow 3s infinite
 
       .left
         position: absolute
@@ -74,6 +75,8 @@ $silver-5: darken($base-color, 4%)
         width: $width
         transform-origin: top left
         transform: rotateZ(90deg) rotateX(-90deg) rotateY(0)
+
+        animation: left-box-shadow 3s infinite
 
         &::before
           right: $slit-gap
@@ -88,6 +91,8 @@ $silver-5: darken($base-color, 4%)
         transform-origin: top
         transform: translateY($width) rotateX(-90deg)
 
+        animation: right-box-shadow 3s infinite
+
         &::before
           left: $slit-gap
 
@@ -95,18 +100,28 @@ $silver-5: darken($base-color, 4%)
           right: $dots-gap
 
 
-    &.shadow
-      .box
-        .left,
-        .right
-          transition: box-shadow .75s .65s
+@keyframes dots-glow
+  from,
+  to
+    opacity: .45
 
-          &::after
-            transition: opacity .75s
-            opacity: 1
+  50%
+    opacity: 1
 
-        .left
-          box-shadow: 10px 8px 20px -2.5px transparentize($green-solid, .45)
 
-        .right
-          box-shadow: -10px 8px 20px -2.5px transparentize($green-solid, .45)
+@keyframes left-box-shadow
+  from,
+  to
+    box-shadow: 10px 4px 10px -1.25px transparentize($green-solid, .45)
+
+  50%
+    box-shadow: 10px 8px 20px -2.5px transparentize($green-solid, .45)
+
+
+@keyframes right-box-shadow
+  from,
+  to
+    box-shadow: -10px 4px 10px -1.25px transparentize($green-solid, .45)
+
+  50%
+    box-shadow: -10px 8px 20px -2.5px transparentize($green-solid, .45)
