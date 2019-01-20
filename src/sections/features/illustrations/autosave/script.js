@@ -60,12 +60,11 @@ export default {
 
   methods: {
     out() {
-      this.raised = false;
       return new Promise((resolve) => {
         // Server out, then laptop staggered
         this.$refs.server.out();
         setTimeout(() => { this.$refs.laptop.out().then(resolve); }, 90);
-      });
+      }).then(() => { this.raised = false; });
     },
     in() {
       this.raised = true;
