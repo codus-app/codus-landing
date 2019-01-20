@@ -12,7 +12,7 @@
         ref="items"
         v-on:mouseenter="change(i)"
       >
-        <h4 v-html="item.title"></h4>
+        <h4 v-html="item.title.replace(/<\/?br>/g, ' ')"></h4>
         <p v-html="item.desc"></p>
       </div>
     </div>

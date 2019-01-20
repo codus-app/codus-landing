@@ -12,7 +12,7 @@ export default [
     desc: 'Codus checks every solution against a thorough set of test cases.',
   },
   {
-    title: 'Debugging tools',
+    title: 'Debugging</br>tools',
     desc: 'Codus displays both <code>stdout</code> and <code>stderr</code> after every problem run in order to allow robust debugging.',
   },
 ];
