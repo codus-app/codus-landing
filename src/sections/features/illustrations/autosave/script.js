@@ -1,10 +1,17 @@
 const colors = [
-  '#8fbcbb',
-  '#88c0d0',
-  '#81a1c1',
-  '#5e81ac',
-  '#4c566a',
-  '#2e3440',
+  // Duotone Dark Sea: duo palette
+  '#34febb',
+  '#2acb95',
+  '#42675a',
+  '#42675a',
+
+  // // Nord: Frost palette
+  // '#8fbcbb',
+  // '#88c0d0',
+  // '#81a1c1',
+  // '#5e81ac',
+  // '#4c566a',
+  // '#2e3440',
 ];
 
 const dpr = window.devicePixelRatio;
