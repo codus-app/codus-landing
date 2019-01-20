@@ -47,10 +47,8 @@ export default {
 
   mounted() {
     this.ctx = this.$refs.canvas.getContext('2d');
-    this.rows = [
-      new Array(numCols).fill(null).map((_, i) => new Problem(i, this.$refs.canvas)),
-    ];
-    this.rowCount = 1;
+    this.rows = [];
+    this.rowCount = 0;
     this.$refs.canvas.width = this.$refs.canvas.offsetWidth * dpr;
     this.$refs.canvas.height = this.$refs.canvas.offsetHeight * dpr;
 
@@ -60,10 +58,19 @@ export default {
   watch: { running(is) { if (is) this.draw(); } },
 
   methods: {
-    out() { return this.$refs.laptop.out(); },
-    in() { return this.$refs.laptop.in(); },
+    out() {
+      return this.$refs.laptop.out()
+        .then(() => { this.running = false; this.rows = []; });
+    },
+    in() {
+      this.running = true;
+      this.rowCount = 0;
+      return this.$refs.laptop.in();
+    },
 
     draw() {
+      if (!this.running) return;
+
       const { canvas } = this.$refs;
       this.ctx.clearRect(0, 0, canvas.width, canvas.height);
       const bottomRow = this.rows.slice(-1)[0];
@@ -81,7 +88,7 @@ export default {
       }
       [].concat(...this.rows).forEach(b => b.draw(this.ctx));
 
-      if (this.running) requestAnimationFrame(() => this.draw());
+      requestAnimationFrame(() => this.draw());
     },
   },
 
