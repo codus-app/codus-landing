@@ -18,6 +18,7 @@ export default {
     transitionEasing: 'ease',
     opacity: 1,
 
+    scale: 1,
     rotateZ: 0,
     translateZ: 0,
   }),
@@ -32,6 +33,7 @@ export default {
         transform: [
           `rotateZ(${deg(this.rotateZ)})`,
           `translateZ(${px(this.translateZ)})`,
+          `scale3d(${this.scale}, ${this.scale}, 1)`,
         ].join(' '),
         transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
@@ -48,6 +50,7 @@ export default {
         transitionEasing: 'ease-in',
         opacity: 0,
         rotateZ: 135,
+        scale: 0.5,
         translateZ: -350 - offsetFromLaptop,
       });
 
@@ -63,6 +66,7 @@ export default {
         transitionTime: 0,
         opacity: 1,
         rotateZ: -270,
+        scale: 0.5,
         translateZ: -500 - offsetFromLaptop,
       });
       // Wait for CSS to be applied
@@ -73,6 +77,7 @@ export default {
         transitionTime: duration,
         transitionEasing: 'ease',
         rotateZ: 0,
+        scale: 1,
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
