@@ -27,7 +27,7 @@ canvas
 
 
 .ring
-  animation-duration: 1.5s
+  animation-duration: 2s
   animation-timing-function: linear
   animation-iteration-count: infinite
   top: 0
@@ -50,7 +50,7 @@ canvas
 
   @for $index from 1 through 3
     &:nth-child(#{$index})
-      animation-delay: 2.25s + (1.5s / 3) * ($index - 1)
+      animation-delay: .5s + (2s / 3) * ($index - 1)
 
       &::after
         transform: translateY(-100% * (1 / $size) * ($index - 1))
