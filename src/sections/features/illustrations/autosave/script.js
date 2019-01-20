@@ -48,10 +48,14 @@ export default {
 
   data: () => ({
     ctx: undefined,
-    running: true,
     dpr,
     raised: false,
   }),
+
+  computed: {
+    // Animation runs when animation is visible
+    running() { return this.raised; },
+  },
 
   mounted() {
     this.ctx = this.$refs.canvas.getContext('2d');
