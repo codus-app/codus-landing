@@ -34,12 +34,38 @@ $silver-5: darken($base-color, 4%)
       background-repeat: no-repeat
       transform-style: preserve-3d
 
+      $slit-height: 9px
+      $slit-gap: ($height / 2) - ($slit-height / 2)
+
+      $dots-height: 12px
+      $dots-width: $dots-height * 3.5
+      $dots-gap: ($height / 2) - ($slit-height / 2)
+
       .left,
       .right
         left: 0
         top: 0
         height: $height
         clip-path: inset(0 0 -50px 0)
+
+        &::before
+          content: ''
+          position: absolute
+          top: $slit-gap
+          width: calc(100% - #{$slit-gap * 2} - #{$dots-width} - #{$dots-gap})
+          height: $slit-height
+          border-radius: 1.5px
+          background: transparentize($black, .8)
+
+        &::after
+          content: ''
+          position: absolute
+          top: $dots-gap
+          width: $dots-width
+          height: $dots-height
+          background-image: radial-gradient($green-solid 35%, transparent 35%)
+          background-size: $dots-height / 2 $dots-height / 2
+          opacity: .15
 
       .left
         position: absolute
@@ -49,18 +75,38 @@ $silver-5: darken($base-color, 4%)
         transform-origin: top left
         transform: rotateZ(90deg) rotateX(-90deg) rotateY(0)
 
+        &::before
+          right: $slit-gap
+
+        &::after
+          left: $dots-gap
+
+
       .right
         background: linear-gradient(to bottom right, $silver-3, $silver-5)
         width: $length
         transform-origin: top
         transform: translateY($width) rotateX(-90deg)
 
+        &::before
+          left: $slit-gap
+
+        &::after
+          right: $dots-gap
+
+
     &.shadow
       .box
+        .left,
+        .right
+          transition: box-shadow .75s .65s
+
+          &::after
+            transition: opacity .75s
+            opacity: 1
+
         .left
-          transition: box-shadow .75s
           box-shadow: 10px 8px 20px -2.5px transparentize($green-solid, .15)
 
         .right
-          transition: box-shadow .75s
           box-shadow: -10px 8px 20px -2.5px transparentize($green-solid, .15)
