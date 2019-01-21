@@ -53,7 +53,7 @@ export default {
         transform: `rotateX(-90deg) rotateZ(${deg(this.handleAngle)}) translateY(-50%) translateX(calc(${radius} - 5px)) translateZ(${thickness})`,
         transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
-  },
+    },
   },
 
   methods: {
@@ -94,7 +94,7 @@ export default {
 
         opacity: 1,
         rotateZ: 0,
-        translateY: 20,
+        translateY: 15,
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
