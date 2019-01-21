@@ -6,7 +6,7 @@ $silver-3: $base-color
 $silver-4: darken($base-color, 7.5%)
 $silver-5: darken($base-color, 15%)
 $silver-6: darken($base-color, 25%)
-$silver-7: darken($base-color, 45%)
+$silver-7: darken($base-color, 35%)
 
 $radius: 60px
 $rim-width: 15px
@@ -52,7 +52,7 @@ $handle-length: 110px
           width: 100%
           height: 100%
           transform: translateZ($thickness)
-          box-shadow: inset 0 0 0 $rim-width $silver-4, inset 0 0 0 $rim-width + 1 $silver-6
+          box-shadow: inset 0 0 0 $rim-width $silver-3, inset 0 0 0 $rim-width + 1 $silver-5
           border-radius: 50%
 
         // Magnifying glass internals go here
@@ -70,7 +70,7 @@ $handle-length: 110px
         position: absolute
         width: $handle-length
         height: $rim-width
-        background: linear-gradient(0deg, $silver-4, $silver-3)
+        background: linear-gradient(0deg, $silver-3, $silver-2)
         transform-origin: top left
         transform: rotateX(-90deg) rotateZ(52deg) translateY(-50%) translateX($radius - 5px) translateZ($thickness)
         border-radius: 7.5px
