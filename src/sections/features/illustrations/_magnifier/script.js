@@ -47,7 +47,7 @@ export default {
         transitionEasing: 'ease-in',
         opacity: 0,
         rotateZ: 135,
-        translateZ: -350,
+        translateZ: -400,
       });
 
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
