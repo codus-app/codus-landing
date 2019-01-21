@@ -3,8 +3,13 @@ export default {
     initialVisibleState: Boolean,
   },
 
+  data: () => ({
+    timeout: null,
+  }),
+
   methods: {
     out() {
+      clearTimeout(this.timeout);
       return Promise.all([
         this.$refs.magnifier.out(),
         new Promise(resolve => setTimeout(() => this.$refs.screen.out().then(resolve), 70)),
@@ -14,7 +19,10 @@ export default {
     in() {
       return Promise.all([
         this.$refs.screen.in(),
-        new Promise(resolve => setTimeout(() => this.$refs.magnifier.in().then(resolve), 200)),
+        new Promise((resolve) => {
+          this.timeout = setTimeout(() => this.$refs.magnifier.in()
+            .then(resolve), 200);
+        }),
       ]);
     },
   },
