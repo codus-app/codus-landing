@@ -40,7 +40,6 @@ export default {
   methods: {
     async out(duration = 0.35) {
       this.$emit('animationstart');
-      this.$emit('animationend');
       Object.assign(this, {
         transitionTime: duration,
         transitionEasing: 'ease-in',
@@ -55,7 +54,6 @@ export default {
 
     async in(duration = 1) {
       this.$emit('animationstart');
-
       // Set initial position
       Object.assign(this, {
         transitionTime: 0,
