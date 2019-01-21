@@ -35,34 +35,38 @@ $silver-5: darken($base-color, 4%)
       transform-style: preserve-3d
 
       $slit-height: 9px
-      $slit-gap: ($height / 2) - ($slit-height / 2)
 
       $dots-height: 12px
       $dots-width: $dots-height * 3.5
-      $dots-gap: ($height / 2) - ($slit-height / 2)
 
       .left,
       .right
+        display: flex
+        align-items: center
         left: 0
         top: 0
         height: $height
         clip-path: inset(0 0 -50px 0)
+        padding: 0 6px
 
+        // Slit
         &::before
           content: ''
-          position: absolute
-          top: $slit-gap
-          width: calc(100% - #{$slit-gap * 2} - #{$dots-width} - #{$dots-gap})
+          order: 2
+          flex-grow: 1
           height: $slit-height
+          margin: 0 3px
           border-radius: 1.5px
           background: transparentize($black, .8)
 
+        // Dots
         &::after
           content: ''
-          position: absolute
-          top: $dots-gap
+          order: 3
+          flex-grow: 0
           width: $dots-width
           height: $dots-height
+          margin: 0 2px
           background-image: radial-gradient($green-solid 35%, transparent 35%)
           background-size: $dots-height / 2 $dots-height / 2
 
@@ -70,7 +74,7 @@ $silver-5: darken($base-color, 4%)
 
       .left
         position: absolute
-        z-index: -1
+        flex-direction: row-reverse
         background: linear-gradient(to left, $silver-2, $silver-4)
         width: $width
         transform-origin: top left
@@ -78,26 +82,15 @@ $silver-5: darken($base-color, 4%)
 
         animation: left-box-shadow 3s infinite
 
-        &::before
-          right: $slit-gap
-
-        &::after
-          left: $dots-gap
-
 
       .right
+        flex-direction: row
         background: linear-gradient(to bottom right, $silver-3, $silver-5)
         width: $length
         transform-origin: top
         transform: translateY($width) rotateX(-90deg)
 
         animation: right-box-shadow 3s infinite
-
-        &::before
-          left: $slit-gap
-
-        &::after
-          right: $dots-gap
 
 
 @keyframes dots-glow
