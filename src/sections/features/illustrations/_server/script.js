@@ -54,7 +54,6 @@ export default {
         translateZ: -350 - offsetFromLaptop,
       });
 
-      [this.transitionTime, this.transitionEasing] = [duration, 'ease-in'];
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
       this.$emit('animationend');
     },
