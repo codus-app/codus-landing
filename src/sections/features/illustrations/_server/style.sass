@@ -49,6 +49,24 @@ $silver-5: darken($base-color, 4%)
         clip-path: inset(0 0 -50px 0)
         padding: 0 6px
 
+        .label
+          order: 1
+          font-size: 12px
+          font-family: $font-lato
+          font-weight: 900
+          color: transparentize($white, .9)
+          text-transform: uppercase
+          margin: 0 3px
+
+          &::before
+            content: ''
+            display: inline-block
+            width: 20px
+            height: $slit-height
+            margin-right: 6px
+            border-radius: 1.5px
+            background: transparentize($black, .8)
+
         // Slit
         &::before
           content: ''

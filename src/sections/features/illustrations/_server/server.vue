@@ -4,7 +4,9 @@
       <div class="wrapper" ref="wrapper" v-bind:style="wrapperStyle">
         <div class="box">
           <div class="left"></div>
-          <div class="right"></div>
+          <div class="right">
+            <div class="label">codus-engine</div>
+          </div>
         </div>
       </div>
     </div>
