@@ -2,7 +2,7 @@
   <div class="magnifier" v-bind:style="style">
     <div class="magnifier3d">
       <div class="wrapper" v-bind:style="wrapperStyle">
-        <div class="handle"></div>
+        <div class="handle" v-bind:style="handleStyle"></div>
         <div class="lens">
           <div class="contents">
 

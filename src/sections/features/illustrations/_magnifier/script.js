@@ -12,12 +12,13 @@ export default {
   data: () => ({
     transitionTime: 0.5,
     transitionEasing: 'ease',
-    opacity: 1,
 
+    opacity: 1,
     translateX: 0,
     translateY: 0,
     translateZ: 0,
     rotateZ: 0,
+    handleAngle: 52,
   }),
 
   created() {
@@ -25,6 +26,13 @@ export default {
   },
 
   computed: {
+    style() {
+      return {
+        opacity: this.opacity,
+        transition: `opacity ${secs(this.transitionTime)} ${this.transitionEasing}`,
+      };
+    },
+
     wrapperStyle() {
       return {
         transform: [
@@ -36,7 +44,16 @@ export default {
         transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
     },
-    style() { return { opacity: this.opacity, transition: `opacity ${secs(this.transitionTime)} ${this.transitionEasing}` }; },
+
+    handleStyle() {
+      const radius = '60px';
+      const thickness = '10px';
+
+      return {
+        transform: `rotateX(-90deg) rotateZ(${deg(this.handleAngle)}) translateY(-50%) translateX(calc(${radius} - 5px)) translateZ(${thickness})`,
+        transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
+      };
+  },
   },
 
   methods: {
@@ -65,6 +82,7 @@ export default {
         translateX: 0,
         translateY: 600,
         translateZ: -100,
+        handleAngle: 52,
       });
       // Wait for CSS to be applied
       await this.$nextTick();
