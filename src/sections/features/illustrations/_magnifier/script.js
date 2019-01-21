@@ -15,6 +15,7 @@ export default {
     opacity: 1,
 
     translateX: 0,
+    translateY: 0,
     translateZ: 0,
     rotateZ: 0,
   }),
@@ -28,6 +29,7 @@ export default {
       return {
         transform: [
           `translateX(${px(this.translateX)})`,
+          `translateY(${px(this.translateY)})`,
           `translateZ(${px(this.translateZ)})`,
           `rotateZ(${deg(this.rotateZ)})`,
         ].join(' '),
