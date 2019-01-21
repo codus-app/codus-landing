@@ -19,8 +19,6 @@ export default {
     translateZ: 0,
     rotateZ: 0,
     handleAngle: 52,
-
-    loopTimeout: null,
   }),
 
   created() {
@@ -55,13 +53,12 @@ export default {
         transform: `rotateX(-90deg) rotateZ(${deg(this.handleAngle)}) translateY(-50%) translateX(calc(${radius} - 5px)) translateZ(${thickness})`,
         transition: `transform ${secs(this.transitionTime)} ${this.transitionEasing}`,
       };
-    },
+  },
   },
 
   methods: {
     async out(duration = 0.35) {
       this.$emit('animationstart');
-      this.stopLoop();
       Object.assign(this, {
         transitionTime: duration,
         transitionEasing: 'ease-in',
@@ -101,56 +98,7 @@ export default {
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
-      await new Promise(resolve => setTimeout(resolve, 250));
-      this.startLoop();
       this.$emit('animationend');
-    },
-
-
-    startLoop() {
-      if (this.loopTimeout === null) this.step(0);
-    },
-
-    step(lastIndex) {
-      this.transitionTime = 1.5;
-      this.transitionEasing = 'cubic-bezier(0.445, 0.05, 0.55, 0.95)';
-
-      const poses = [
-        // Default pose (center)
-        {
-          handleAngle: 52,
-          translateZ: 0,
-          translateX: 0,
-        },
-        // Top left
-        {
-          handleAngle: 120,
-          translateZ: 60,
-          translateX: -170,
-        },
-        // Top right
-        {
-          handleAngle: 52,
-          translateZ: 80,
-          translateX: 60,
-        },
-        // Bottom left
-        {
-          handleAngle: 100,
-          translateZ: -30,
-          translateX: -140,
-        },
-      ];
-
-      let index = Math.floor(Math.random() * poses.length);
-      while (index === lastIndex) index = Math.floor(Math.random() * poses.length);
-      Object.assign(this, poses[index]);
-      this.loopTimeout = setTimeout(() => this.step(index), this.transitionTime * 1000 + 0);
-    },
-
-    stopLoop() {
-      clearTimeout(this.loopTimeout);
-      this.loopTimeout = null;
     },
   },
 };
