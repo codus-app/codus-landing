@@ -46,7 +46,7 @@ export default {
     },
 
     handleStyle() {
-      const radius = '70px';
+      const radius = '80px';
       const thickness = '10px';
 
       return {

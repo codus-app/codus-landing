@@ -2,6 +2,8 @@ import { CodeBlock, dpr } from '../autosave/script';
 
 class BigCodeBlock extends CodeBlock {
   static get height() { return 8 * dpr; }
+
+  static get speed() { return 75 * dpr; }
 }
 
 
@@ -37,7 +39,8 @@ export default {
     this.$refs.revealed.style.left = `calc(50% - ${width / 2}px)`;
 
     this.contexts = ['opaque', 'revealed'].map(r => this.$refs[r].getContext('2d'));
-    this.contexts[0].filter = 'grayscale(85%)';
+    this.contexts[0].filter = 'grayscale(100%) brightness(80%)';
+    this.contexts[1].filter = 'saturation(115%)';
 
     this.addRow();
     this.draw();
@@ -71,10 +74,10 @@ export default {
     addRow() {
       const row = [];
       const horizGap = 6 * dpr;
-      const indent = (60 + Math.round(Math.random()) * 20) * dpr;
-      for (let i = 0; i <= Math.floor(Math.random() * 7); i += 1) {
+      const indent = (70 + Math.round(Math.random()) * 20) * dpr;
+      for (let i = 0; i <= Math.floor(Math.random() * 8); i += 1) {
         const newX = indent + row.map(block => block.width + horizGap).reduce((a, b) => a + b, 0);
-        const width = Math.floor(Math.random() * 60 + 5) * dpr;
+        const width = Math.floor(Math.random() * 50 + 5) * dpr;
         row.push(new BigCodeBlock(newX, width, this.$refs.opaque));
       }
       this.rows.push(row);
