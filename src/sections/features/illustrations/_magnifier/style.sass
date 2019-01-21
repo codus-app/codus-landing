@@ -27,6 +27,7 @@ $handle-length: 95px
     left: 50%
     transform-origin: center center 0
     transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg)
+    animation: isometricAnimateY 1.5s cubic-bezier(.445, .05, .55, .95) infinite alternate
 
     // Dynamic transforms applied here
     .wrapper
@@ -89,3 +90,11 @@ $handle-length: 95px
           background: linear-gradient(to right, $silver-4, $silver-5)
           transform-origin: 0 bottom
           transform: rotateX(90deg)
+
+
+@keyframes isometricAnimateY
+  from
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(7.5px)
+
+  to
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(-7.5px)
