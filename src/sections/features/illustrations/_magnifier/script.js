@@ -59,9 +59,11 @@ export default {
       // Set initial position
       Object.assign(this, {
         transitionTime: 0,
-        opacity: 1,
+
+        opacity: 0,
         rotateZ: -50,
-        translateX: 600,
+        translateX: 0,
+        translateY: 600,
         translateZ: -100,
       });
       // Wait for CSS to be applied
@@ -71,8 +73,10 @@ export default {
       Object.assign(this, {
         transitionTime: duration,
         transitionEasing: 'ease',
+
+        opacity: 1,
         rotateZ: 0,
-        translateX: 0,
+        translateY: 20,
         translateZ: 0,
       });
       await new Promise(resolve => setTimeout(resolve, duration * 1000));
