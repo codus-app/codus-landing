@@ -1,7 +1,7 @@
 const colors = [
   // Duotone Dark Sea: duo palette
-  '#34febb',
-  '#2acb95',
+  '#34feac',
+  '#2acb90',
   '#42675a',
   '#42675a',
 
