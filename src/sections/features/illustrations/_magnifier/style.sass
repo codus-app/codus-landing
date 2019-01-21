@@ -1,0 +1,88 @@
+$base-color: #bbb
+
+$silver-1: lighten($base-color, 15%)
+$silver-2: lighten($base-color, 7.5%)
+$silver-3: $base-color
+$silver-4: darken($base-color, 7.5%)
+$silver-5: darken($base-color, 15%)
+$silver-6: darken($base-color, 25%)
+$silver-7: darken($base-color, 45%)
+
+$radius: 80px
+$rim-width: 20px
+$width: 10px
+
+
+.magnifier
+  *
+    transform-style: preserve-3d
+
+  // 3D container to set up isometric transform
+  .magnifier3d
+    position: absolute
+    top: 50%
+    left: 50%
+    transform-origin: center center 0
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg)
+
+    // Dynamic transforms applied here
+    .wrapper
+      position: absolute
+      top: 0
+      transform-origin: 0 0 0
+      transform: rotateZ(-0deg)
+      will-change: transform
+      transition: transform .25s
+
+      .lens
+        // Back rim
+        position: relative
+        width: $radius * 2
+        height: $radius * 2
+        background: linear-gradient(220deg, $silver-1, $silver-7)
+        border-radius: 50%
+        transform: translate(-50%, -50%) rotateX(-90deg)
+
+        // Front rim
+        &::after
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          transform: translateZ(10px)
+          box-shadow: inset 0 0 0 $rim-width $silver-4, inset 0 0 0 $rim-width + 1 $silver-6
+          border-radius: 50%
+
+        // Magnifying glass internals go here
+        .contents
+          position: absolute
+          top: $rim-width
+          left: $rim-width
+          width: ($radius - $rim-width) * 2
+          height: ($radius - $rim-width) * 2
+          border-radius: 50%
+          overflow: hidden
+
+      // Handle
+      .handle
+        position: absolute
+        width: 130px
+        height: $rim-width
+        background: linear-gradient(0deg, $silver-4, $silver-3)
+        transform-origin: top left
+        transform: rotateX(-90deg) rotateZ(52deg) translateY(-50%) translateX($radius - 5px) translateZ($width)
+        border-radius: 7.5px
+
+        // Left side of the handle
+        &::after
+          content: ''
+          position: absolute
+          bottom: 0
+          left: 0
+          width: 130px - 7.5px + 4
+          height: $width
+          background: linear-gradient(to right, $silver-4, $silver-5)
+          transform-origin: 0 bottom
+          transform: rotateX(90deg)
