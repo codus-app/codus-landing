@@ -1,6 +1,6 @@
 const colors = [
-  'rgba(61, 229, 137, .75)', // green
-  '#232327', '#232327', '#232327', '#232327', // gray (multiple for increased selection chance)
+  '#3bdb83', // $green-bg
+  '#232327', '#232327', '#232327', '#232327', // $dark-5 (multiple for increased selection chance)
 ];
 
 const dpr = window.devicePixelRatio;
