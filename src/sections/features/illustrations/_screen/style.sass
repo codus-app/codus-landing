@@ -1,0 +1,81 @@
+$base-color: #bbb
+
+$silver-1: lighten($base-color, 15%)
+$silver-2: lighten($base-color, 7.5%)
+$silver-3: $base-color
+$silver-4: darken($base-color, 7.5%)
+$silver-5: darken($base-color, 15%)
+
+$width: 350px
+$height: $width * (5 / 7)
+$thickness: 7px
+$border-width: 7px
+
+.screen
+  *
+    transform-style: preserve-3d
+
+  // 3D container to set up isometric transform
+  .screen3d
+    position: absolute
+    top: 50%
+    left: 50%
+    transform-origin: center center 0
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(-20px)
+
+    // Dynamic transforms applied here
+    .wrapper
+      position: absolute
+      top: 0
+      transform-origin: 0 20px 0
+      will-change: transform
+      transition: transform .25s
+
+      .box
+        // Front side
+        position: absolute
+        top: 0
+        left: 0
+        width: $width
+        height: $height
+        transform: translate(-50%, -50%) rotateX(-90deg)
+        background: linear-gradient(to bottom right, $silver-2, $silver-5)
+
+        // Left side
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: $thickness
+          height: $height
+          transform-origin: right
+          transform: translateX(-100%) rotateY(-90deg)
+          background: linear-gradient(to bottom, $silver-1, $silver-5)
+
+        // Top side
+        &::after
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: $width
+          height: $thickness
+          transform-origin: bottom
+          transform: translateY(-100%) rotateX(90deg)
+          background: linear-gradient(to right, $silver-1, $silver-5)
+
+        .back
+          position: absolute
+          width: 100%
+          height: 100%
+          background: linear-gradient(to bottom right, $silver-2, $silver-4)
+          transform: translateZ(-$thickness)
+
+        .contents
+          position: absolute
+          top: $border-width
+          right: $border-width
+          bottom: $border-width
+          left: $border-width
+          overflow: hidden
