@@ -1,10 +1,10 @@
 <template>
   <div class="illustration">
     <screen ref="screen">
-      <canvas ref="opaque"></canvas>
+      <canvas ref="opaque" class="opaque"></canvas>
     </screen>
     <magnifier ref="magnifier">
-      <canvas ref="revealed"></canvas>
+      <canvas ref="revealed" class="revealed"></canvas>
     </magnifier>
   </div>
 </template>
