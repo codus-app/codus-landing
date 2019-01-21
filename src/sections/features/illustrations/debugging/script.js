@@ -4,9 +4,15 @@ export default {
   },
 
   methods: {
-    out() { return this.$refs.laptop.out(); },
-    in() { return this.$refs.laptop.in(); },
+    out() {
+      return this.$refs.magnifier.out();
+    },
+    in() {
+      return this.$refs.magnifier.in();
+    },
   },
 
-  components: { laptop: require('../_laptop/laptop.js').default },
+  components: {
+    magnifier: require('../_magnifier/magnifier.vue').default,
+  },
 };

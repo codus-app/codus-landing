@@ -1,8 +1,8 @@
 <template>
   <div class="illustration">
-    <laptop ref="laptop" v-bind="{ initialVisibleState }">
-      Debugging tools
-    </laptop>
+    <magnifier ref="magnifier">
+      <div style="width: 100%; height: 100%; background: #1a1a1a;"></div>
+    </magnifier>
   </div>
 </template>
 
