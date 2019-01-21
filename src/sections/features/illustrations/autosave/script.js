@@ -50,6 +50,7 @@ export default {
     ctx: undefined,
     dpr,
     raised: false,
+    enterTimeout: null,
   }),
 
   computed: {
@@ -71,6 +72,7 @@ export default {
 
   methods: {
     out() {
+      clearTimeout(this.enterTimeout);
       return new Promise((resolve) => {
         // Server out, then laptop staggered
         this.$refs.server.out();
@@ -82,7 +84,7 @@ export default {
       return new Promise((resolve) => {
         // Laptop in, then server staggered
         this.$refs.laptop.in();
-        setTimeout(() => { this.$refs.server.in().then(resolve); }, 50);
+        this.enterTimeout = setTimeout(() => { this.$refs.server.in().then(resolve); }, 50);
       });
     },
 
