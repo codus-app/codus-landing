@@ -7,14 +7,14 @@ export default {
     out() {
       return Promise.all([
         this.$refs.magnifier.out(),
-        this.$refs.screen.out(),
+        new Promise(resolve => setTimeout(() => this.$refs.screen.out().then(resolve), 70)),
       ]);
     },
 
     in() {
       return Promise.all([
         this.$refs.screen.in(),
-        this.$refs.screen.out(),
+        new Promise(resolve => setTimeout(() => this.$refs.magnifier.in().then(resolve), 200)),
       ]);
     },
   },
