@@ -9,10 +9,12 @@
           <span class="anim"><span class="green">Solve.</span></span>
         </h1>
 
-        <p v-fade.up="{ delay: '1.1s' }" data-content="
-          Learn to solve practical problems with software. Master principles of programming whether
-          you’re an amateur, a student, or a professional.
-        "></p>
+        <p v-fade.up="{ delay: '1.1s' }">
+          <span class="contents">
+            Learn to solve practical problems with software. Master principles of programming
+            whether you’re an amateur, a student, or a professional.
+          </span>
+        </p>
       </div>
 
       <div class="right">
