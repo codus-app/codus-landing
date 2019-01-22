@@ -1,8 +1,8 @@
 <template>
   <section id="features">
     <div class="container">
-      <h2 class="pre-header">Key Features</h2>
-      <h1 v-html="items[selectedIndex].title"></h1>
+      <h3 class="pre-header">Key Features</h3>
+      <h2 v-html="items[selectedIndex].title"></h2>
 
       <feature-slider
         v-model="selectedIndex"
