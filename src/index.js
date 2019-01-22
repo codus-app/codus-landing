@@ -1,4 +1,5 @@
 /* eslint-disable import/first */
+/* global CODUS_APP_URL */
 import 'babel-polyfill';
 import 'promise-polyfill';
 import 'abortcontroller-polyfill';
@@ -28,3 +29,5 @@ window.app = new Vue({
 
   data: { sections },
 });
+
+if (auth.isAuthenticated() && !auth.loginExpired()) window.location.replace(CODUS_APP_URL);
