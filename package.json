@@ -45,6 +45,7 @@
     "jsdom": "^13.1.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
+    "prerender-spa-plugin": "^3.4.0",
     "rimraf": "^2.6.3",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",

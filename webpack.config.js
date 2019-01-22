@@ -3,7 +3,13 @@
 require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
+
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const { PuppeteerRenderer } = PrerenderSPAPlugin;
+
+
+const isDevServer = !!process.argv.find(v => v.includes('webpack-dev-server'));
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -70,6 +76,18 @@ module.exports = {
       CODUS_API_BASE: JSON.stringify(process.env.CODUS_API_BASE),
     }),
     new VueLoaderPlugin(),
+
+    // If we're in production, minimize!
+    ...process.env.NODE_ENV === 'production' ? [new webpack.LoaderOptionsPlugin({ minimize: true })] : [],
+
+    // If we're not running webpack-dev-server, use Puppeteer to pre-render HTML
+    ...isDevServer ? [] : [
+      new PrerenderSPAPlugin({
+        staticDir: path.join(__dirname, 'build'),
+        routes: ['/'],
+        renderer: new PuppeteerRenderer({ renderAfterDocumentEvent: 'render-event' }),
+      }),
+    ],
   ],
 
 
@@ -87,10 +105,3 @@ module.exports = {
     disableHostCheck: true,
   },
 };
-
-// Custom settings for production
-if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.LoaderOptionsPlugin({ minimize: true }),
-  ]);
-}

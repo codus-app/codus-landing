@@ -9,25 +9,33 @@ import './ctx-round-rect';
 
 import Vue from 'vue';
 
+
 // HTML
 import './index.html';
+
+// App
+import App from './App.vue';
 
 // Styles
 import './style.sass';
 
 // Load components
 import './components';
-import sections from './sections';
 
 import './directives';
 
 import auth from './auth';
 window.auth = auth;
 
+
 window.app = new Vue({
   el: '#app',
+  render: h => h(App),
 
-  data: { sections },
+  mounted() {
+    document.dispatchEvent(new Event('render-event'));
+  },
 });
+
 
 if (auth.isAuthenticated() && !auth.loginExpired()) window.location.replace(CODUS_APP_URL);
