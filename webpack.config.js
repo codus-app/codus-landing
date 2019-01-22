@@ -3,7 +3,7 @@
 require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',

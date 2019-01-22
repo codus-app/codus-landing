@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    // Recieve arbitrary localStorage entries from the main app
+
+    window.addEventListener('message', (e) => {
+      if (!['http://0.0.0.0:5001', 'http://localhost:5001', 'https://app.codus.io'].includes(e.origin)) return;
+      const { data } = e;
+
+      // Set items
+      Object.entries(data.set || {}).forEach(([key, value]) => localStorage.setItem(key, value));
+      // Remove items
+      (data.remove || []).forEach(key => localStorage.removeItem(key));
+    });
+
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 import auth0 from 'auth0-js';
 import jwtDecode from 'jwt-decode';
 import * as api from './api';
-
+import './localstorage-iframe.html';
 
 const webAuth = new auth0.WebAuth({
   domain: 'codus.auth0.com',
