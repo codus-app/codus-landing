@@ -7,7 +7,6 @@ export default {
     placeholder: String,
     message: String,
     type: { type: String, default: 'text' },
-    autofill: { type: Boolean, default: false },
     status: {
       type: String,
       validator: value => ['neutral', 'success', 'failure', 'loading'].includes(value),
