@@ -38,4 +38,4 @@ window.app = new Vue({
 });
 
 
-if (auth.isAuthenticated() && !auth.loginExpired()) window.location.replace(CODUS_APP_URL);
+if (auth.isAuthenticated()) window.location.replace(CODUS_APP_URL);
