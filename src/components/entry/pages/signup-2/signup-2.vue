@@ -4,9 +4,8 @@
 
     <text-input
       v-model="username"
-      name="username"
       type="text"
-      placeholder="Username"
+      v-bind:placeholder="'U\u200Bsername'"
       v-bind:status="usernameStatus"
       v-bind:message="usernameMessage"
       theme="light"
