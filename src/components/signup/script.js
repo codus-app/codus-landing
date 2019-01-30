@@ -43,18 +43,14 @@ export default {
       if (this.getError('username')) return 'failure';
       if (!this.showUsernameValidation) return 'neutral';
       // Fail if basic validation fails
-      if (this.username.length && (!this.usernameValid)) return 'failure';
-      // Neutral while typing; after stop, load until success/failure
-      if (this.usernameLoading) return 'loading';
-      if (this.username !== this.lastCheckedUsername) return 'neutral';
-      return this.usernameAvailable ? 'success' : 'failure';
+      if (!this.usernameValid) return 'failure';
+      return 'neutral';
     },
     usernameMessage() {
       if (this.getError('username')) return this.getError('username'); // Any server-side errors
       if (!this.showUsernameValidation) return '';
-      if (this.username.length && !this.usernameLengthValid) return 'Must be between 1 and 15 characters';
+      if (!this.usernameLengthValid) return 'Must be between 1 and 15 characters';
       if (!this.usernameCharsValid) return 'Must only contain lowercase letters, numbers, and underscores';
-      if (this.username === this.lastCheckedUsername && !this.usernameLoading && this.usernameAvailable === false) return 'That username is taken!';
       return '';
     },
 
@@ -73,13 +69,13 @@ export default {
 
     // Password
     passwordLengthValid() { return isByteLength(this.password, { min: 8 }); },
-    passwordStatus() { return (this.passwordError || (this.showPasswordValidation && !this.passwordLengthValid)) ? 'failure' : 'neutral'; },
-    passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordError; },
+    passwordStatus() { return (this.getError('password') || (this.showPasswordValidation && !this.passwordLengthValid)) ? 'failure' : 'neutral'; },
+    passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.getError('password'); },
 
     canSubmit() {
       /* eslint-disable max-len */
       return this.showEmailValidation && this.showUsernameValidation && this.showNameValidation && this.showPasswordValidation
-        && [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus].every(n => n !== 'failure')
+        && [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus].every(n => n !== 'failure');
       /* eslint-enable */
     },
   },
@@ -113,7 +109,7 @@ export default {
       return new Promise((resolve, reject) => {
         const { email, password, username, name } = this; // eslint-disable-line object-curly-newline, max-len
         auth.signup(email, password, username, name)
-          .catch((e) => { this.errors = e; reject(); });
+          .catch((e) => { console.log(e); this.errors = e; reject(); });
       });
     },
     // Get the first server-side error for any field
