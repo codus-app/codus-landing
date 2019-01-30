@@ -18,7 +18,9 @@
       </div>
 
       <div class="right">
-        <entry-form v-fade="{ delay: '1.6s', duration: '1s' }"></entry-form>
+        <div class="forms-container">
+          <entry-form v-fade="{ delay: '1.6s', duration: '1s' }"></entry-form>
+        </div>
       </div>
     </div>
 

@@ -75,11 +75,34 @@ header
       position: relative
       margin-left: 40px
 
-      .entry
+      .forms-container
+        position: relative
         width: 100%
         max-width: 460px
         min-height: 100%
         position: absolute
         right: 0
 
+        animation: pop .5s cubic-bezier(.69, 0, .55, 1.06)
+
+      .entry
+        position: absolute
+        width: 100%
+        min-height: 100%
         font-size: 1.45em
+
+
+
+@keyframes pop
+  from
+    transform: scale(1)
+
+  60%
+    transform: scale(1.07)
+
+  80%
+    transform: scale(.97)
+
+  to
+    transform: scale(1)
+
