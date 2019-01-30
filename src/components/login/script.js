@@ -8,6 +8,7 @@ export default {
     email: '',
     password: '',
     showEmailValidation: false,
+    showPasswordValidation: false,
 
     error: null,
     resetting: null,
@@ -18,14 +19,12 @@ export default {
     emailStatus() { return (this.error || (this.showEmailValidation && !this.emailValid)) ? 'failure' : 'neutral'; },
     emailMessage() { return (this.showEmailValidation && !this.emailValid) ? 'Invalid email' : ''; },
 
-    passwordStatus() { return this.error ? 'failure' : 'neutral'; },
-    passwordMessage() { return this.error || ''; },
+    passwordStatus() { return (this.error || (this.showPasswordValidation && !this.password)) ? 'failure' : 'neutral'; },
+    passwordMessage() { return (this.showPasswordValidation && !this.password) ? 'Password is required' : (this.error || ''); },
 
     canSubmit() {
-      // Check that we're not actively displaying an email validation error
-      return !(this.showEmailValidation && !this.emailValid)
-        // No server-side errors
-        && !this.error;
+      // No errors
+      return !this.emailMessage && !this.passwordMessage;
     },
   },
 
@@ -34,7 +33,7 @@ export default {
       this.debouncedSEV();
       this.error = null;
     },
-    password() { this.error = null; },
+    password() { this.error = null; this.showPasswordValidation = true; },
   },
 
   methods: {
@@ -46,6 +45,13 @@ export default {
     },
 
     submit() {
+      this.showEmailValidation = true;
+      this.showPasswordValidation = true;
+
+      if (!this.canSubmit) {
+        return Promise.resolve();
+      }
+
       return new Promise((resolve, reject) => {
         auth.login(this.email, this.password)
           .catch((err) => {

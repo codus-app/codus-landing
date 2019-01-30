@@ -37,7 +37,7 @@
       v-bind:onClick="submit"
       v-bind:enabled="canSubmit"
       text="Log in"
-      theme="light"f
+      theme="light"
     ></loading-button>
   </form>
 </template>
