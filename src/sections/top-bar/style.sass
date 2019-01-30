@@ -46,10 +46,22 @@
     user-select: none
     cursor: pointer
     margin-right: 25px
-    transition: color .25s
+    transition: color .2s
 
     &:hover
       color: transparentize($white, .3)
+
+    &.cta
+      color: transparentize($green-1, .25)
+      padding: 7px 15px 6px
+      border-radius: 4px
+      box-shadow: 0 0 0 2px transparentize($green-1, .75)
+      transform: translateY(-1px)
+      opacity: .75
+      transition: opacity .2s
+
+      &:hover
+        opacity: 1
 
   .group
     display: flex
