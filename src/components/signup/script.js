@@ -77,8 +77,10 @@ export default {
     passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.passwordError; },
 
     canSubmit() {
-      return [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus]
-        .every(n => n !== 'failure');
+      /* eslint-disable max-len */
+      return this.showEmailValidation && this.showUsernameValidation && this.showNameValidation && this.showPasswordValidation
+        && [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus].every(n => n !== 'failure')
+      /* eslint-enable */
     },
   },
 
