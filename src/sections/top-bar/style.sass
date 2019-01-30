@@ -35,14 +35,28 @@
   .container
     @include container
     display: flex
+    align-items: stretch
+
+  .group
+    display: flex
     align-items: center
+    margin-right: 10px
 
-  .link
-    color: transparentize($white, .5)
-    font-size: 16px
-    font-family: $font-nunito
-    font-weight: 400
-    letter-spacing: .25px
-    user-select: none
-    cursor: pointer
+    .link
+      color: transparentize($white, .5)
+      font-size: 16px
+      font-family: $font-nunito
+      font-weight: 400
+      letter-spacing: .25px
+      user-select: none
+      cursor: pointer
+      margin-right: 25px
+      transition: color .25s
 
+      &:hover
+        color: transparentize($white, .3)
+
+    svg
+      width: 24px
+      height: 24px
+      opacity: .7

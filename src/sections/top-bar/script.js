@@ -14,5 +14,8 @@ export default {
         });
       }
     },
+    goto(url) {
+      window.location.replace(url);
+    },
   },
 };
