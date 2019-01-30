@@ -22,6 +22,15 @@
         </a>
       </div>
 
+      <div class="group right">
+        <span class="link">
+          Log in
+        </span>
+        <div class="span link cta">
+          Sign up
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
