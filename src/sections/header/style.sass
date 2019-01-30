@@ -36,8 +36,8 @@ header
       flex-basis: 0 // sass-lint:disable-line empty-line-between-blocks
       flex-grow: 0
       flex-shrink: 0
-
       display: inline-block
+      transition: opacity .35s
 
       h1
         display: inline-block
@@ -74,6 +74,8 @@ header
       flex-shrink: 0
       position: relative
       margin-left: 40px
+      transition: transform .55s cubic-bezier(0.645, 0.045, 0.355, 1);
+
 
       .entry
         width: 100%
@@ -83,3 +85,8 @@ header
         right: 0
 
         font-size: 1.45em
+
+  &.alt-layout
+    .container .left
+      opacity: 0
+      transition: opacity .5s .2s
