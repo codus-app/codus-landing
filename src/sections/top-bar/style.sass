@@ -45,8 +45,9 @@
     letter-spacing: .25px
     user-select: none
     cursor: pointer
-    margin-right: 25px
+    margin-right: calc(15px + 1vw)
     transition: color .2s
+    white-space: nowrap
 
     &:hover
       color: transparentize($white, .3)
@@ -66,7 +67,7 @@
   .group
     display: flex
     align-items: center
-    margin-right: 10px
+    margin-right: calc(15px + 1vw)
 
     &.right
       margin-left: auto
