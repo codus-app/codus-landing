@@ -5,8 +5,9 @@ export default {
     title: String,
     name: String,
     placeholder: String,
-    message: String,
     type: { type: String, default: 'text' },
+    disableAutocomplete: { type: Boolean, default: false },
+    message: String,
     status: {
       type: String,
       validator: value => ['neutral', 'success', 'failure', 'loading'].includes(value),

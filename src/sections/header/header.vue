@@ -25,6 +25,9 @@
           <transition name="form-fade">
             <login-form v-if="mode === 'login'"></login-form>
           </transition>
+          <transition name="form-fade">
+            <signup-form v-if="mode === 'signup'"></signup-form>
+          </transition>
         </div>
       </div>
     </div>

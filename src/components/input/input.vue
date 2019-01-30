@@ -6,6 +6,7 @@
         v-bind:id="_uid"
         v-bind:name="name"
         v-bind:type="type"
+        v-bind:autocomplete="disableAutocomplete ? 'new-password' : ''"
         v-bind:placeholder="placeholder"
         v-bind:value="value"
 

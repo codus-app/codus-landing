@@ -26,7 +26,7 @@ export default {
       if (this.usernameError) return 'failure';
       if (!this.showUsernameValidation) return 'neutral';
       // Fail if basic validation fails
-      if (this.username.length && (!this.usernameLengthValid || !this.usernameCharsValid)) return 'failure';
+      if (this.username.length && (!this.usernameValid)) return 'failure';
       // Neutral while typing; after stop, load until success/failure
       if (this.usernameLoading) return 'loading';
       if (this.username !== this.lastCheckedUsername) return 'neutral';

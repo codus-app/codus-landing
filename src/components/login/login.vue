@@ -4,6 +4,7 @@
     <h3>Welcome back.</h3>
     <h3 class="green">Log in here.</h3>
 
+    <!-- Email -->
     <text-input
       v-model="email"
       name="email"
@@ -15,6 +16,7 @@
 
       v-on:blur="showEmailValidation = true"
     ></text-input>
+    <!-- Password -->
     <text-input
       v-model="password"
       name="password"
@@ -32,7 +34,7 @@
         {{ { null: 'Forgot passsword?', true: 'Sending...', false: 'Email sent' }[resetting] }}
       </div>
     </text-input>
-
+    <!-- Submit -->
     <loading-button
       v-bind:onClick="submit"
       v-bind:enabled="canSubmit"

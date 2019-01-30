@@ -17,5 +17,6 @@ Vue.component('spinner', require('./spinner/spinner.vue').default);
 Vue.component('loading-button', require('./loading-button/loading-button.vue').default);
 Vue.component('entry-form', require('./entry/entry.vue').default);
 Vue.component('login-form', require('./login/login.vue').default);
+Vue.component('signup-form', require('./signup/signup.vue').default);
 // features section
 Vue.component('feature-slider', require('./feature-slider/feature-slider.vue').default);
