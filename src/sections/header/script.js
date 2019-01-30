@@ -1,6 +1,9 @@
 export default {
+  props: {
+    mode: { type: String, required: true, validator: val => ['entry', 'login', 'signup'].includes(val) },
+  },
+
   data: () => ({
-    mode: 'entry',
     animClass: '',
   }),
 
