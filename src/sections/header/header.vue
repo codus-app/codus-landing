@@ -1,8 +1,8 @@
 <template>
-  <header v-bind:class="{ 'alt-layout': altLayout }">
+  <header>
 
     <div class="container">
-      <div class="left" ref="left">
+      <div class="left">
         <h1 v-header-text-entrance="{ delay: '.35s' }">
           <span class="anim">Write,</span> <span class="anim">Run,</span>
           <br>
@@ -17,14 +17,14 @@
         </p>
       </div>
 
-      <div class="right" v-bind:style="{ transform: rightTransform }">
-        <entry-form ref="form" v-fade="{ delay: '1.6s', duration: '1s' }"></entry-form>
+      <div class="right">
+        <entry-form v-fade="{ delay: '1.6s', duration: '1s' }"></entry-form>
       </div>
     </div>
 
   </header>
 </template>
 
-<script src="./script.js"></script>
+<script></script>
 
 <style scoped lang="sass" src="./style.sass"></style>
