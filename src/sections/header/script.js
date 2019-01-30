@@ -9,6 +9,7 @@ export default {
 
   watch: {
     async mode() {
+      // Trigger animation
       this.animClass = '';
       await this.$nextTick();
       (() => {})(this.$el.offsetHeight); // Force reflow
