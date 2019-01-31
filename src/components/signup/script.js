@@ -63,7 +63,8 @@ export default {
     },
     nameMessage() {
       if (this.getError('name')) return this.getError('name'); // Any server-side errors
-      if (this.name.length && !this.nameLengthValid) return 'Must be between 1 and 25 characters';
+      if (!this.showNameValidation) return '';
+      if (!this.nameLengthValid) return 'Must be between 1 and 25 characters';
       return '';
     },
 
