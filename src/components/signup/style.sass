@@ -1,0 +1,28 @@
+form.signup
+  .input-group
+    position: relative
+    width: 100%
+    max-width: 340px
+    display: flex
+    align-items: flex-start
+
+    .input
+      &:first-of-type
+        margin-top: 0
+
+      &:not(:last-child)
+        margin-right: .75em
+
+  h3:last-of-type
+    margin-bottom: .65em
+
+  .input /deep/
+    input
+      margin-top: .15em
+      margin-bottom: 0
+
+    // .message
+      // white-space: nowrap
+
+  .loading-button
+    margin-top: 0

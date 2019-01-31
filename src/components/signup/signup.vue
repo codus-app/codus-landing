@@ -14,25 +14,27 @@
       v-bind:message="emailMessage"
       theme="light"
     ></text-input>
-    <!-- Username -->
-    <text-input
-      v-model="username"
-      type="text"
-      v-bind:placeholder="'U\u200Bsername'"
-      v-bind:status="usernameStatus"
-      v-bind:message="usernameMessage"
-      theme="light"
-    ></text-input>
-    <!-- Name -->
-    <text-input
-      v-model="name"
-      name="name"
-      type="text"
-      placeholder="Display Name"
-      v-bind:status="nameStatus"
-      v-bind:message="nameMessage"
-      theme="light"
-    ></text-input>
+    <div class="input-group">
+      <!-- Username -->
+      <text-input
+        v-model="username"
+        type="text"
+        v-bind:placeholder="'U\u200Bsername'"
+        v-bind:status="usernameStatus"
+        v-bind:message="usernameMessage"
+        theme="light"
+      ></text-input>
+      <!-- Name -->
+      <text-input
+        v-model="name"
+        name="name"
+        type="text"
+        placeholder="Display Name"
+        v-bind:status="nameStatus"
+        v-bind:message="nameMessage"
+        theme="light"
+      ></text-input>
+    </div>
     <!-- Password -->
     <text-input
       v-model="password"
@@ -57,3 +59,4 @@
 <script src="./script.js"></script>
 
 <style scoped lang="sass" src="../login/style.sass"></style>
+<style scoped lang="sass" src="./style.sass"></style>
