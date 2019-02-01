@@ -2,7 +2,7 @@
 <template>
   <form class="signup">
     <h3>Welcome aboard!</h3>
-    <h3 class="green">Let's get started.</h3>
+    <h3 class="green">Let’s get started.</h3>
 
     <!-- Email -->
     <text-input

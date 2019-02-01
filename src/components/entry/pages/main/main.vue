@@ -1,6 +1,6 @@
 <template>
   <div class="page main">
-    <h3 class="green">Let's get started.</h3>
+    <h3 class="green">Let’s get started.</h3>
 
     <text-input
       v-model="email"
