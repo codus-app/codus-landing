@@ -50,7 +50,7 @@
     <loading-button
       v-bind:onClick="submit"
       v-bind:enabled="canSubmit"
-      text="Log in"
+      text="Sign up"
       theme="light"
     ></loading-button>
   </form>
