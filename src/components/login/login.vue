@@ -1,6 +1,6 @@
 <!-- Dedicated login form -->
 <template>
-  <form class="login light">
+  <form class="login light" v-on:keydown.enter="$refs.button.click()">
     <h3>Welcome back.</h3>
     <h3 class="green">Log in here.</h3>
 
@@ -36,6 +36,7 @@
     </text-input>
     <!-- Submit -->
     <loading-button
+      ref="button"
       v-bind:onClick="submit"
       v-bind:enabled="canSubmit"
       text="Log in"

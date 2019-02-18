@@ -1,6 +1,6 @@
 <!-- Dedicated signup form -->
 <template>
-  <form class="signup">
+  <form class="signup" v-on:keydown.enter="$refs.button.click">
     <h3>Welcome aboard!</h3>
     <h3 class="green">Let’s get started.</h3>
 
@@ -48,6 +48,7 @@
     ></text-input>
     <!-- Submit -->
     <loading-button
+      ref="button"
       v-bind:onClick="submit"
       v-bind:enabled="canSubmit"
       text="Sign up"
