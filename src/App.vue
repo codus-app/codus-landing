@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <top-bar v-bind:links="sections" v-fade="{ delay: '1.6s', duration: '.45s' }"></top-bar>
-    <page-header></page-header>
+    <top-bar
+      v-bind:links="sections"
+      v-on:login="headerMode = 'login'"
+      v-on:signup="headerMode = 'signup'"
+      v-fade="{ delay: '1.6s', duration: '.45s' }"
+    ></top-bar>
+    <page-header v-bind:mode="headerMode"></page-header>
     <features-section></features-section>
   </div>
 </template>
@@ -10,6 +15,9 @@
 import sections from './sections';
 
 export default {
-  data: () => ({ sections }),
+  data: () => ({
+    sections,
+    headerMode: 'entry',
+  }),
 };
 </script>

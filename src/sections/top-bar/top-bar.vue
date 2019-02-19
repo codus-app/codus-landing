@@ -23,10 +23,10 @@
       </div>
 
       <div class="group right">
-        <span class="link">
+        <span class="link" v-on:click="$emit('login'); scrollToTop()">
           Log in
         </span>
-        <div class="span link cta">
+        <div class="span link cta" v-on:click="$emit('signup'); scrollToTop()">
           Sign up
         </div>
       </div>

@@ -1,6 +1,6 @@
 <!-- Combined login and signup form -->
 <template>
-  <form class="entry light" v-bind:class="{ [`page-${page}`]: true }">
+  <form class="entry light" v-bind:class="{ [`page-${page}`]: true }" v-on:keydown.enter="$refs.button.click()">
     <h3>Start learning today.</h3>
 
     <div class="page-switch">
@@ -27,6 +27,7 @@
     </div>
 
     <loading-button
+      ref="button"
       v-bind:onClick="submit"
       v-bind:enabled="[mainPageValid, page2Valid][page - 1]"
       v-bind:text="buttonText"

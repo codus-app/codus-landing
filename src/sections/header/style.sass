@@ -83,10 +83,13 @@ header
         position: absolute
         right: 0
 
-        animation: pop .5s cubic-bezier(.69, 0, .55, 1.06)
+        &.anim
+          animation: pop .55s cubic-bezier(.69, 0, .55, 1.06)
 
-      .entry
+      form
         position: absolute
+        top: 50%
+        transform: translateY(-50%)
         width: 100%
         min-height: 100%
         font-size: 1.45em
@@ -106,3 +109,11 @@ header
   to
     transform: scale(1)
 
+
+.form-fade-enter-active,
+.form-fade-leave-active
+  transition: opacity .01s .398s
+
+.form-fade-enter,
+.form-fade-leave-to
+  opacity: 0

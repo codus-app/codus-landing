@@ -1,7 +1,10 @@
+<!-- Dedicated login form -->
 <template>
-  <div class="page main">
-    <h3 class="green">Let’s get started.</h3>
+  <form class="login light" v-on:keydown.enter="$refs.button.click()">
+    <h3>Welcome back.</h3>
+    <h3 class="green">Log in here.</h3>
 
+    <!-- Email -->
     <text-input
       v-model="email"
       name="email"
@@ -11,9 +14,9 @@
       v-bind:message="emailMessage"
       theme="light"
 
-      v-on:blur="checkEmail"
+      v-on:blur="showEmailValidation = true"
     ></text-input>
-
+    <!-- Password -->
     <text-input
       v-model="password"
       name="password"
@@ -22,19 +25,26 @@
       v-bind:status="passwordStatus"
       v-bind:message="passwordMessage"
       theme="light"
-
-      v-on:blur="showPasswordValidation2 = true"
     >
       <div
         class="password-reset"
         v-on:click="passwordReset"
-        v-bind:class="{ invisible: mode !== 'login', disabled: resetting !== null }"
+        v-bind:class="{ disabled: resetting !== null }"
       >
         {{ { null: 'Forgot passsword?', true: 'Sending...', false: 'Email sent' }[resetting] }}
       </div>
     </text-input>
-  </div>
+    <!-- Submit -->
+    <loading-button
+      ref="button"
+      v-bind:onClick="submit"
+      v-bind:enabled="canSubmit"
+      text="Log in"
+      theme="light"
+    ></loading-button>
+  </form>
 </template>
 
-<style scoped lang="sass" src="./style.sass"></style>
 <script src="./script.js"></script>
+
+<style scoped lang="sass" src="./style.sass"></style>

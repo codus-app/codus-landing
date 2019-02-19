@@ -17,9 +17,17 @@
         </p>
       </div>
 
-      <div class="right">
-        <div class="forms-container">
-          <entry-form v-fade="{ delay: '1.6s', duration: '1s' }"></entry-form>
+      <div class="right"  v-fade="{ delay: '1.6s', duration: '1s' }">
+        <div class="forms-container" v-bind:class="animClass">
+          <transition name="form-fade">
+            <entry-form v-if="mode === 'entry'"></entry-form>
+          </transition>
+          <transition name="form-fade">
+            <login-form v-if="mode === 'login'"></login-form>
+          </transition>
+          <transition name="form-fade">
+            <signup-form v-if="mode === 'signup'"></signup-form>
+          </transition>
         </div>
       </div>
     </div>
@@ -27,6 +35,6 @@
   </header>
 </template>
 
-<script></script>
+<script src="./script.js"></script>
 
 <style scoped lang="sass" src="./style.sass"></style>
