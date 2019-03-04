@@ -63,7 +63,7 @@
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.1",
     "animate.css": "^3.7.0",
-    "auth0-js": "^9.8.2",
+    "auth0-js": "^9.10.0",
     "babel-polyfill": "^6.26.0",
     "debounce": "^1.2.0",
     "jwt-decode": "^2.2.0",
