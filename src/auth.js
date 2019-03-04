@@ -99,9 +99,11 @@ export default {
 
 
 // Auth
-const frame = document.createElement('iframe');
-frame.src = `${CODUS_APP_URL}/localstorage-iframe.html`;
-frame.id = 'localstorage';
-frame.style.display = 'none';
-frame.onload = () => frame.setAttribute('loaded', '');
-document.body.appendChild(frame);
+if (!document.querySelector('iframe#localstorage')) {
+  const frame = document.createElement('iframe');
+  frame.src = `${CODUS_APP_URL}/localstorage-iframe.html`;
+  frame.id = 'localstorage';
+  frame.style.display = 'none';
+  frame.onload = () => frame.setAttribute('loaded', '');
+  document.body.appendChild(frame);
+}
