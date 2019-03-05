@@ -19,15 +19,20 @@
 
       <div class="right"  v-fade="{ delay: '1.6s', duration: '1s' }">
         <div class="forms-container" v-bind:class="animClass">
-          <transition name="form-fade">
-            <entry-form v-if="mode === 'entry'"></entry-form>
-          </transition>
-          <transition name="form-fade">
-            <login-form v-if="mode === 'login'"></login-form>
-          </transition>
-          <transition name="form-fade">
-            <signup-form v-if="mode === 'signup'"></signup-form>
-          </transition>
+          <!-- Login forms only show if the browser is supported -->
+          <template v-if="browserSupported">
+            <transition name="form-fade">
+              <entry-form v-if="mode === 'entry'"></entry-form>
+            </transition>
+            <transition name="form-fade">
+              <login-form v-if="mode === 'login'"></login-form>
+            </transition>
+            <transition name="form-fade">
+              <signup-form v-if="mode === 'signup'"></signup-form>
+            </transition>
+          </template>
+
+          <unsupported-browser-message v-if="!browserSupported"></unsupported-browser-message>
         </div>
       </div>
     </div>

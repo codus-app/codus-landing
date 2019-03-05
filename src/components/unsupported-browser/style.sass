@@ -1,0 +1,62 @@
+@import 'src/styles/variables'
+
+.unsupported-browser-message
+  background: $white
+  color: $dark-5
+  font-size: 16px
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 25px 70px
+  border-radius: 8px
+  text-align: center
+
+  h3
+    font-family: $font-lato
+    font-size: 35px
+    text-align: center
+    line-height: 1.22em
+    margin-bottom: 25px
+
+  svg
+    width: 100%
+    max-width: 230px
+    height: auto
+    margin: 15px 0
+
+  p
+    font-family: $font-lato
+    color: transparentize($dark-5, .3)
+    font-weight: 500
+
+    a
+      color: $green-text-light-bg
+
+  .links
+    display: flex
+
+    a
+      display: flex
+      width: 150px
+      height: 40px
+      background: #eeeeee
+      border-radius: 4px
+
+      align-items: center
+      justify-content: center
+
+      color: transparentize($dark-5, .35)
+      font-family: $font-lato
+      font-size: 12px
+      font-weight: 700
+      text-transform: uppercase
+      letter-spacing: .125em
+
+      transition: background .2s
+
+      &:not(:last-child)
+        margin-right: 15px
+
+      &:hover
+        background: #e6e6e6

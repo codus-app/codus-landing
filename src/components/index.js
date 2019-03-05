@@ -18,5 +18,6 @@ Vue.component('loading-button', require('./loading-button/loading-button.vue').d
 Vue.component('entry-form', require('./entry/entry.vue').default);
 Vue.component('login-form', require('./login/login.vue').default);
 Vue.component('signup-form', require('./signup/signup.vue').default);
+Vue.component('unsupported-browser-message', require('./unsupported-browser/unsupported-browser.vue').default);
 // features section
 Vue.component('feature-slider', require('./feature-slider/feature-slider.vue').default);
