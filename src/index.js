@@ -2,7 +2,6 @@
 /* global CODUS_APP_URL */
 import 'babel-polyfill';
 import 'promise-polyfill';
-import 'abortcontroller-polyfill';
 import 'whatwg-fetch';
 import smoothscroll from 'smoothscroll-polyfill'; smoothscroll.polyfill();
 import './ctx-round-rect';

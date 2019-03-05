@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline, import/prefer-default-export */
 /* global CODUS_API_BASE */
-async function apiRequest({ endpoint, method, heads, body, signal }) {
+async function apiRequest({ endpoint, method, heads, body }) {
   const url = [
     CODUS_API_BASE.replace(/\/$/g, ''), // Strip trailing slash
     endpoint.replace(/^\//g, ''), // Strip leading slash
@@ -10,7 +10,6 @@ async function apiRequest({ endpoint, method, heads, body, signal }) {
     headers: heads,
     method,
     body,
-    signal,
   })
     .then(r => r.json())
     .then(({ data, error }) => {
@@ -20,8 +19,8 @@ async function apiRequest({ endpoint, method, heads, body, signal }) {
 }
 
 /** Perform a GET request */
-export function get({ endpoint, signal }) {
-  return apiRequest({ endpoint, method: 'GET', signal });
+export function get({ endpoint }) {
+  return apiRequest({ endpoint, method: 'GET' });
 }
 
 /** Perform a POST request */
