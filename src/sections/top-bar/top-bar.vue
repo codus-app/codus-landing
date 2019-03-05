@@ -22,7 +22,7 @@
         </a>
       </div>
 
-      <div class="group right">
+      <div class="group right" v-if="browserSupported">
         <span class="link" v-on:click="$emit('login'); scrollToTop()">
           Log in
         </span>

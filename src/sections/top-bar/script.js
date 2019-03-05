@@ -1,7 +1,11 @@
+import { isSupported as browserSupported } from '../../browser-detect';
+
 export default {
   props: {
     links: Array,
   },
+
+  data: () => ({ browserSupported }),
 
   methods: {
     scrollToTop() { window.scroll({ top: 0, behavior: 'smooth' }); },
