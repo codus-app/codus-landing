@@ -63,10 +63,10 @@ export default {
     });
   },
 
-  signup(email, password, username, name) {
+  signup(email, password, username, name, role = 'student') {
     return api.post({
       endpoint: '/user',
-      body: { username, name, email, password }, // eslint-disable-line object-curly-newline
+      body: { username, name, email, password, role }, // eslint-disable-line object-curly-newline
     })
       .then(() => this.login(email, password));
   },
