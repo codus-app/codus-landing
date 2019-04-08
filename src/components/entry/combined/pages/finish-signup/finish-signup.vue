@@ -1,5 +1,5 @@
 <template>
-  <div class="page signup-2">
+  <div class="page finish-signup">
     <h3 class="green">One more step.</h3>
 
     <text-input

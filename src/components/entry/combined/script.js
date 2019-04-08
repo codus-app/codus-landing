@@ -19,7 +19,7 @@ export default {
 
   components: {
     'main-page': require('./pages/main/main.vue').default,
-    'signup-page-2': require('./pages/signup-2/signup-2.vue').default,
+    'final-signup-page': require('./pages/finish-signup/finish-signup.vue').default,
   },
 
   computed: {
@@ -45,8 +45,8 @@ export default {
         // Sign up page 1; move to next page
         if (this.page === 1 && this.mode === 'signup') {
           setTimeout(() => {
-            resolve();
             this.page = 2;
+            resolve();
           }, 400); // Load while text changes
         }
 

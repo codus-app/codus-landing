@@ -15,21 +15,21 @@
         v-on:validationchange="mainPageValid = $event"
       ></main-page>
 
-      <signup-page-2
+      <final-signup-page
         v-on:usernamechange="username = $event"
         v-on:namechange="name = $event"
         v-bind:usernameError="getError('username')"
         v-bind:nameError="getError('name')"
 
         v-on:validationchange="page2Valid = $event"
-      ></signup-page-2>
+      ></final-signup-page>
 
     </div>
 
     <loading-button
       ref="button"
       v-bind:onClick="submit"
-      v-bind:enabled="[mainPageValid, page2Valid][page - 1]"
+      v-bind:enabled="[mainPageValid, roleSelected, page2Valid][page - 1]"
       v-bind:text="buttonText"
       theme="light"
     ></loading-button>
