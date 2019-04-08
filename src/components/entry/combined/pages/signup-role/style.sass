@@ -27,12 +27,12 @@
       flex: 1 1 0
       min-width: 0
       border-radius: 8px
-      background: #efefef
-      color: transparentize($dark-5, .35)
-      font-size: 12px
-      text-align: center
-
       padding: 12px 12px 19px
+      background-color: #efefef
+      color: transparentize($dark-5, .35)
+      text-align: center
+      cursor: pointer
+      transition: color .2s, box-shadow .2s, background-color .2s
 
       &:first-child
         margin-right: 15px
@@ -40,11 +40,20 @@
       h5
         font-family: $font-lato
         font-weight: 600
+        font-size: 13px
         letter-spacing: .035em
         text-transform: uppercase
-        margin: 0 0 8px
+        margin: 0 0 5px
 
       p
         font-family: $font-lato
         font-weight: 400
+        font-size: 13px
+        opacity: .85
         margin: 0
+        line-height: 1.4
+
+      &.selected
+        color: $dark-5
+        box-shadow: 0 0 0 1px $green-solid, inset 0 0 0 2px $green-solid
+
