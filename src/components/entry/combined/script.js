@@ -66,8 +66,8 @@ export default {
         // Sign up page 3; signup is complete; submit
         if (this.page === 3) {
           // eslint-disable-next-line object-curly-newline
-          const { email, password, username, name } = this;
-          auth.signup(email, password, username, name)
+          const { email, password, username, name, role } = this;
+          auth.signup(email, password, username, name, role)
             .catch((e) => {
               this.errors = e;
               // Go back if the email or password was wrong
