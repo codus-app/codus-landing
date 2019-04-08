@@ -1,7 +1,7 @@
 import { debounce } from 'debounce';
 import isByteLength from 'validator/lib/isByteLength';
 
-import * as api from '../../../../api';
+import * as api from '../../../../../api';
 
 export default {
   data: () => ({

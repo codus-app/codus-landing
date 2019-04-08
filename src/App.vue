@@ -17,7 +17,7 @@ import sections from './sections';
 export default {
   data: () => ({
     sections,
-    headerMode: 'entry',
+    headerMode: 'generic',
   }),
 };
 </script>

@@ -3,7 +3,7 @@ import isEmail from 'validator/lib/isEmail';
 import isByteLength from 'validator/lib/isByteLength';
 
 // import * as api from '../../api';
-import auth from '../../auth';
+import auth from '../../../auth';
 
 
 export default {

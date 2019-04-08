@@ -1,7 +1,7 @@
 import { debounce } from 'debounce';
 import isEmail from 'validator/lib/isEmail';
 
-import auth from '../../auth';
+import auth from '../../../auth';
 
 export default {
   data: () => ({

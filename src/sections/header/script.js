@@ -2,7 +2,7 @@ import { isSupported as browserSupported } from '../../browser-detect';
 
 export default {
   props: {
-    mode: { type: String, required: true, validator: val => ['entry', 'login', 'signup'].includes(val) },
+    mode: { type: String, required: true, validator: val => ['generic', 'login', 'signup'].includes(val) },
   },
 
   data: () => ({

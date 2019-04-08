@@ -22,7 +22,7 @@
           <!-- Login forms only show if the browser is supported -->
           <template v-if="browserSupported">
             <transition name="form-fade">
-              <entry-form v-if="mode === 'entry'"></entry-form>
+              <combined-entry-form v-if="mode === 'generic'"></combined-entry-form>
             </transition>
             <transition name="form-fade">
               <login-form v-if="mode === 'login'"></login-form>
