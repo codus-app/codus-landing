@@ -9,6 +9,7 @@ export default {
     password: '',
     username: '',
     name: '',
+    role: '',
 
     errors: [],
 
@@ -19,14 +20,18 @@ export default {
 
   components: {
     'main-page': require('./pages/main/main.vue').default,
+    'role-select-page': require('./pages/signup-role/role-select.vue').default,
     'final-signup-page': require('./pages/finish-signup/finish-signup.vue').default,
   },
 
   computed: {
     buttonText() {
       if (this.page === 1) return this.mode === 'login' ? 'Log in' : 'Continue';
+      if (this.page === 2) return 'Continue';
       return 'Sign up';
     },
+
+    roleSelected() { return !!this.role; },
   },
 
   methods: {
@@ -50,7 +55,16 @@ export default {
           }, 400); // Load while text changes
         }
 
+        // Sign up page 2; move to final page
         if (this.page === 2) {
+          setTimeout(() => {
+            this.page = 3;
+            resolve();
+          }, 400);
+        }
+
+        // Sign up page 3; signup is complete; submit
+        if (this.page === 3) {
           // eslint-disable-next-line object-curly-newline
           const { email, password, username, name } = this;
           auth.signup(email, password, username, name)

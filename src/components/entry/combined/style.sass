@@ -22,7 +22,7 @@
   .page-switch
     position: relative
     flex-grow: 1 // Full height
-    width: calc(200% + 48px)
+    width: calc(300% + 72px)
     align-self: flex-start
     transition: transform .35s
 
@@ -31,12 +31,14 @@
     .page
       position: relative
       flex-shrink: 0
-      width: calc((100% - 48px) / 2)
+      width: calc((100% - 72px) / 3)
       margin-right: 24px // Double the .generic.entry padding
 
-  &.page-2
-    .page-switch
-      transform: translate(-50%)
+  &.page-2 .page-switch
+    transform: translate(-33%)
+
+  &.page-3 .page-switch
+    transform: translate(-67%)
 
   .loading-button
     transition: color .35s, background .35s, border-radius .25s, width .45s

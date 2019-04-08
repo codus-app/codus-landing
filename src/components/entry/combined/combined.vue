@@ -15,6 +15,8 @@
         v-on:validationchange="mainPageValid = $event"
       ></main-page>
 
+      <role-select-page v-model="role"></role-select-page>
+
       <final-signup-page
         v-on:usernamechange="username = $event"
         v-on:namechange="name = $event"
