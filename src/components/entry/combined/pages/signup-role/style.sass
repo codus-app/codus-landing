@@ -1,0 +1,50 @@
+@import 'src/styles/variables'
+
+.role-select
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-around
+
+  h3
+    margin-top: 0
+    margin-bottom: .5em
+
+  h4
+    margin-bottom: 15px
+    font-family: $font-lato
+    font-weight: 600
+    font-size: 17px
+    color: transparentize($dark-5, .4)
+
+  .role-select
+    margin: 0 48px auto
+
+    display: flex
+    flex-direction: row
+
+    .role
+      flex: 1 1 0
+      min-width: 0
+      border-radius: 8px
+      background: #efefef
+      color: transparentize($dark-5, .35)
+      font-size: 12px
+      text-align: center
+
+      padding: 12px 12px 19px
+
+      &:first-child
+        margin-right: 15px
+
+      h5
+        font-family: $font-lato
+        font-weight: 600
+        letter-spacing: .035em
+        text-transform: uppercase
+        margin: 0 0 8px
+
+      p
+        font-family: $font-lato
+        font-weight: 400
+        margin: 0
