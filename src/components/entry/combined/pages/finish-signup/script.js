@@ -4,6 +4,8 @@ import isByteLength from 'validator/lib/isByteLength';
 import * as api from '../../../../../api';
 
 export default {
+  props: ['usernameError', 'nameError', 'collapse'], // Server-side errors get passed in from outside
+
   data: () => ({
     username: '',
     usernameAvailable: null,
@@ -14,8 +16,6 @@ export default {
 
     showUsernameValidation: false,
   }),
-
-  props: ['usernameError', 'nameError'], // Server-side errors get passed in from outside
 
   computed: {
     // Username

@@ -18,6 +18,7 @@
       <role-select-page v-model="role"></role-select-page>
 
       <final-signup-page
+        v-bind:collapse="page !== 3"
         v-on:usernamechange="username = $event"
         v-on:namechange="name = $event"
         v-bind:usernameError="getError('username')"

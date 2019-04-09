@@ -2,6 +2,8 @@
   <div class="page finish-signup">
     <h3 class="green">One more step.</h3>
 
+    <h4 v-bind:class="{ collapse }">Choose a unique username, and choose how you will appear to other users.</h4>
+
     <text-input
       v-model="username"
       type="text"

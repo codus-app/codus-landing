@@ -1,3 +1,5 @@
+@import 'src/styles/variables'
+
 .finish-signup
   display: flex
   flex-direction: column
@@ -5,6 +7,22 @@
 
   h3
     margin-bottom: .5em
+
+  h4
+    margin-bottom: 15px
+    font-family: $font-lato
+    font-weight: 600
+    font-size: 17px
+    color: transparentize($dark-5, .4)
+    text-align: center
+    padding: 0 50px
+    line-height: 1.45
+    height: 2.8em
+    transition: margin .35s, height .35s
+
+    &.collapse
+      height: 0
+      // margin-bottom: 0
 
   .input
     width: 100%
