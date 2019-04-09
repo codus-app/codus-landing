@@ -1,6 +1,6 @@
 <!-- Combined login and signup form -->
 <template>
-  <form class="generic entry light" v-bind:class="{ [`page-${page}`]: true }" v-on:keydown.enter="$refs.button.click()">
+  <form class="generic entry light" v-bind:class="`page-${page}`" v-on:keydown.enter="$refs.button.click()">
     <h3>Start learning today.</h3>
 
     <div class="page-switch">

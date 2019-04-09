@@ -1,6 +1,6 @@
 <template>
   <div class="page role-select">
-    <h3 class="green" slot="heading">Welcome aboard!</h3>
+    <slot name="heading"> <h3 class="green">Welcome aboard!</h3> </slot>
 
     <h4>Which best describes you?</h4>
     <div class="role-select">
