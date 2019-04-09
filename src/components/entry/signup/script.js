@@ -8,6 +8,9 @@ import auth from '../../../auth';
 
 export default {
   data: () => ({
+    page: 1,
+
+    role: '',
     email: '',
     username: '',
     name: '',
@@ -73,10 +76,12 @@ export default {
     passwordStatus() { return (this.getError('password') || (this.showPasswordValidation && !this.passwordLengthValid)) ? 'failure' : 'neutral'; },
     passwordMessage() { return (this.showPasswordValidation && !this.passwordLengthValid) ? 'Must be at least 8 characters in length' : this.getError('password'); },
 
-    canSubmit() {
+    canProceed() {
       /* eslint-disable max-len */
-      return this.showEmailValidation && this.showUsernameValidation && this.showNameValidation && this.showPasswordValidation
-        && [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus].every(n => n !== 'failure');
+      return this.page === 1
+        ? !!this.role
+        : this.showEmailValidation && this.showUsernameValidation && this.showNameValidation && this.showPasswordValidation
+          && [this.emailStatus, this.usernameStatus, this.nameStatus, this.passwordStatus].every(n => n !== 'failure');
       /* eslint-enable */
     },
   },
@@ -106,16 +111,25 @@ export default {
     debouncedSNV: debounce(function snv() { this.showNameValidation = true; }, 750),
     debouncedSPV: debounce(function spv() { this.showPasswordValidation = true; }, 750),
 
+    proceed() {
+      if (this.page === 1) return new Promise(resolve => setTimeout(() => { this.page = 2; resolve(); }, 400)); // eslint-disable-line max-len
+      return this.submit();
+    },
+
     submit() {
       return new Promise((resolve, reject) => {
-        const { email, password, username, name } = this; // eslint-disable-line object-curly-newline, max-len
-        auth.signup(email, password, username, name)
-          .catch((e) => { console.log(e); this.errors = e; reject(); });
+        const { email, password, username, name, role } = this; // eslint-disable-line object-curly-newline, max-len
+        auth.signup(email, password, username, name, role)
+          .catch((e) => { this.errors = e; reject(); });
       });
     },
     // Get the first server-side error for any field
     getError(searchKey) { return (this.errors.find(({ key }) => key === searchKey) || { message: '' }).message; },
     // Clear all server-side errors for any field
     clearErrors(searchKey) { this.errors = this.errors.filter(({ key }) => key !== searchKey); },
+  },
+
+  components: {
+    'role-select-page': require('../combined/pages/signup-role/role-select.vue').default,
   },
 };

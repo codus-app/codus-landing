@@ -1,8 +1,30 @@
 form.signup
+  overflow: hidden
+
+  .page-switch
+    position: relative
+    flex-grow: 1 // Full height
+    width: calc(200% + 48px)
+    align-self: flex-start
+    transition: transform .35s
+
+    display: flex
+
+  .page
+    position: relative
+    flex-shrink: 0
+    width: calc((100% - 48px) / 2)
+    margin-right: 24px
+
+  .inputs
+    max-width: 340px
+    position: relative
+    left: 50%
+    transform: translate(-50%)
+
   .input-group
     position: relative
     width: 100%
-    max-width: 340px
     display: flex
     align-items: flex-start
 
@@ -21,8 +43,9 @@ form.signup
       margin-top: .15em
       margin-bottom: 0
 
-    // .message
-      // white-space: nowrap
-
   .loading-button
+    transition: color .35s, background .35s, border-radius .25s, width .45s
     margin-top: 0
+
+  &.page-2 .page-switch
+    transform: translate(-50%)
