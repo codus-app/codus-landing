@@ -36,7 +36,7 @@ export default {
 
     canProceed() {
       //     good email         email has been looked up
-      return this.emailValid && this.email === this.lastCheckedEmail
+      return this.emailValid && this.email === this.lastCheckedEmail && this.emailStatus2 !== 'loading'
         // Password must be 8 characters for new signups but we don't care if you already have a
         // password that's shorter somehow
         && this.password.length >= (this.mode === 'login' ? 1 : 8)
