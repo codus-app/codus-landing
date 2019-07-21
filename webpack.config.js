@@ -8,8 +8,12 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const { PuppeteerRenderer } = PrerenderSPAPlugin;
 
-
-const isDevServer = !!process.argv.find(v => v.includes('webpack-dev-server'));
+const replacements = {
+  NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+  CODUS_LANDING_URL: JSON.stringify(process.env.CODUS_LANDING_URL),
+  CODUS_APP_URL: JSON.stringify(process.env.CODUS_APP_URL),
+  CODUS_API_BASE: JSON.stringify(process.env.CODUS_API_BASE),
+};
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -44,6 +48,14 @@ module.exports = {
         loaders: [
           'file-loader?name=[path][name].html&context=src',
           'extract-loader',
+          {
+            loader: 'string-replace-loader',
+            options: {
+              multiple: Object
+                .entries(replacements)
+                .map(([k, v]) => ({ search: k, replace: v.replace(/"/g, '\\"') })),
+            },
+          },
           'html-loader',
         ],
       },
@@ -69,19 +81,14 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      CODUS_LANDING_URL: JSON.stringify(process.env.CODUS_LANDING_URL),
-      CODUS_APP_URL: JSON.stringify(process.env.CODUS_APP_URL),
-      CODUS_API_BASE: JSON.stringify(process.env.CODUS_API_BASE),
-    }),
+    new webpack.DefinePlugin(replacements),
     new VueLoaderPlugin(),
 
     // If we're in production, minimize!
     ...process.env.NODE_ENV === 'production' ? [new webpack.LoaderOptionsPlugin({ minimize: true })] : [],
 
     // If we're not running webpack-dev-server, use Puppeteer to pre-render HTML
-    ...isDevServer ? [] : [
+    ...(process.argv.find(v => v.includes('webpack-dev-server'))) ? [] : [
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, 'build'),
         routes: ['/'],
