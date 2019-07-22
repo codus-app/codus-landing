@@ -10,6 +10,7 @@ const { PuppeteerRenderer } = PrerenderSPAPlugin;
 
 const replacements = {
   NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+  BASE_DOMAIN: JSON.stringify(process.env.BASE_DOMAIN),
   CODUS_LANDING_URL: JSON.stringify(process.env.CODUS_LANDING_URL),
   CODUS_APP_URL: JSON.stringify(process.env.CODUS_APP_URL),
   CODUS_API_BASE: JSON.stringify(process.env.CODUS_API_BASE),
