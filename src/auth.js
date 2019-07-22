@@ -1,9 +1,9 @@
-/* global CODUS_APP_URL */
+/* global CODUS_APP_URL, BASE_DOMAIN */
 
 import auth0 from 'auth0-js';
 import jwtDecode from 'jwt-decode';
+import Cookies from 'js-cookie';
 import * as api from './api';
-import './localstorage-iframe.html';
 
 const webAuth = new auth0.WebAuth({
   domain: 'codus.auth0.com',
@@ -39,16 +39,11 @@ export default {
     const state = randomString(32);
     const nonce = randomString(32);
 
-    // Send state + nonce to app via iframe postMessage
-    const frame = document.querySelector('iframe#localstorage');
-    const payload = { state, nonce };
-    if (frame.hasAttribute('loaded')) frame.contentWindow.postMessage(payload, CODUS_APP_URL);
-    else {
-      await new Promise(resolve => frame.addEventListener('load', () => {
-        frame.contentWindow.postMessage(payload, CODUS_APP_URL);
-        resolve();
-      }));
-    }
+    // Store state + nonce
+    const options = { domain: BASE_DOMAIN };
+    Cookies.set('state', state, options);
+    Cookies.set('nonce', nonce, options);
+
 
     // Perform login
     return new Promise((resolve, reject) => {
@@ -73,14 +68,14 @@ export default {
 
   // See if the user is authenticated
   isAuthenticated() {
-    return localStorage.getItem('id_token') !== null
-      && localStorage.getItem('access_token') !== null;
+    return !!Cookies.get('id_token')
+      && !!Cookies.get('access_token');
   },
 
   // Check whether our access token is expired
   // Returns true if the token is expired
   loginExpired() {
-    return Date.now() / 1000 > jwtDecode(localStorage.getItem('access_token')).exp;
+    return Date.now() / 1000 > jwtDecode(Cookies.get('access_token')).exp;
   },
 
   // Send the given user an email inviting them to change their password
@@ -96,14 +91,3 @@ export default {
     });
   },
 };
-
-
-// Auth
-if (!document.querySelector('iframe#localstorage')) {
-  const frame = document.createElement('iframe');
-  frame.src = `${CODUS_APP_URL}/localstorage-iframe.html`;
-  frame.id = 'localstorage';
-  frame.style.display = 'none';
-  frame.onload = () => frame.setAttribute('loaded', '');
-  document.body.appendChild(frame);
-}
