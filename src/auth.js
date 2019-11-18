@@ -40,7 +40,7 @@ export default {
     const nonce = randomString(32);
 
     // Store state + nonce
-    const options = { domain: BASE_DOMAIN };
+    const options = { domain: BASE_DOMAIN, SameSite: 'None', Secure: true };
     Cookies.set('state', state, options);
     Cookies.set('nonce', nonce, options);
 
